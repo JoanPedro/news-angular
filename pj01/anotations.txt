@@ -1,0 +1,27 @@
+Componentes: São indentificados com a anotação @Component em classes.
+
+Exemplo: @Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+Class nameOfClase {} ...
+
+Criando um Component:
+
+  1. Para criar um simples componente é necessário:
+    1.1 Uma Classe anotada como @Component; para indicar ao angular sua natureza;
+    1.2 Um templete Html; para indicar ao angular qual a instância de view;
+    1.3 Não mandatório, mas um arquivo de estilos para o template Html (instância de view).
+  2. Com esses três "arquivos" criados (.ts, .html e .css), é necessário registrá-los:
+    2.1 selector: É um selector CSS que diz ao Angular para criar e inserir uma instância
+          desse componente sempre que encontrar sua respectiva tag correspondente no HTML.
+          Como no exemplo, "app-root" -> <app-root></app-root>; o angular sempre irá inserir
+          uma instância de visualização de AppComponent.
+    2.2 templateUrl: Path relativo para o módulo html deste componente. Como alternativa,
+          você pode fornecer o modelo HTML embutido, como o valor da propriedade do modelo.
+          Este modelo define a visualização do host do componente.
+    2.3 styleUrls: Path relativo ao módulo css deste componente. Definide um arquivo de estilo
+          exclusivo ao componente em questão; pode ser utilizado por *outros componentes*.
+
+
