@@ -28,6 +28,10 @@
       2.3 styleUrls: Path relativo ao módulo css deste componente. Definide um arquivo de estilo
             exclusivo ao componente em questão; pode ser utilizado por *outros componentes*.
 
+  Criação Automatizada: "ng generate component componentName" (ng g c componentName)
+    - Script para criar um component específico em módulo.
+    - O Script cria um component default e o registra no módulo em questão. (declarations)
+
 2 - Modules: São utilizados para agrupar diferentes peças (por exemplo, múltiplos componentes).
 
   - Basicamente informa ao Angular quais funcionalidades o módulo em questão utiliza-ia;
