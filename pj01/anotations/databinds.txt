@@ -1,0 +1,16 @@
+Databinding = Communication
+
+Business Logic ==> Template HTML
+          Output Data ==>
+
+  1. String interpolation -> {{ data }};
+  2. Property binding -> [property] = "data";
+
+      <== React to (User) Events
+
+  1. Event Binding -> (event) = "expression";
+
+          Combination of Output and Event binding
+                        <==>
+
+  1. Two-way Databinding -> [(ngModel)]="data"
