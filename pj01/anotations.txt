@@ -21,7 +21,14 @@
       2.1 selector: É um selector CSS que diz ao Angular para criar e inserir uma instância
             desse componente sempre que encontrar sua respectiva tag correspondente no HTML.
             Como no exemplo, "app-root" -> <app-root></app-root>; o angular sempre irá inserir
-            uma instância de visualização de AppComponent.
+            uma instância de visualização de AppComponent. Deve ser uma string única! Não Deve
+            existir outro selector de mesmo nome.
+              Ex. Pode ser selector por elemento -> selector: 'app-root'
+                Uso: <app-root></app-root>
+              Ex. Pode ser selector por atributo -> selector: '[app-root]'
+                Uso: <div app-root></div>
+              Ex. Pode ser selector por classe -> selector: '.app-root'
+                Uso: <div class="app-root"></div>
       2.2 templateUrl: Path relativo para o módulo html deste componente. Como alternativa,
             você pode fornecer o modelo HTML embutido, como o valor da propriedade do modelo.
             Este modelo define a visualização do host do componente.
