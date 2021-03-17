@@ -1,12 +1,15 @@
 Databinding = Communication
 
 Business Logic ==> Template HTML
-          Output Data ==>
 
-  1. String interpolation -> {{ data }};
-  2. Property binding -> [property] = "data";
+          Output Data ==>
+  One-way from data source to view target
+
+    1. String interpolation -> {{ data }};
+    2. Property binding -> [property] = "data";
 
       <== React to (User) Events
+  One-way from view target to data source
 
   1. Event Binding -> (event) = "expression";
 
