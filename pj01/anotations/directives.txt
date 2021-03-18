@@ -15,3 +15,13 @@ Directives são intruções no DOM!
         Ex. <ng-template #algumTemplate> </ng-template>
       4. O Template irá substituir em caso negativo.
 
+2. ngStyle - Uma propriedade fornecida pelo angular, responsável por mudar dinamicamente
+  estilos de um objeto.
+  2.1 - Pelo fato de ser uma propriedade, é necessário utilizar o artifício de binding:
+    Ex. [ngStyle]="someObject"
+  2.2 - Ele espera como atribuição um OBJETO!
+    2.2.1 - O objeto espero deve ser do tipo Atributo valor-par:
+      Ex. { a = b, c = d}...
+    2.2.2 - A chave do Objeto deve ser uma propriedade CSS:
+      Ex. 'background-color' ou backgroundColor. Os dois tipos funcionam
+
