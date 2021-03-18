@@ -14,12 +14,12 @@
 
 <!-- Long Form, usando ngModels separadamente com getter e setter -->
 <!-- É mais longo mas mais legível -->
-<input
+<!-- <input
   type="text"
   class="form-control"
   [ngModel]="getServerName()"
   (ngModelChange)="setServerName($event)"
->
+> -->
 
 <!-- <p>{{ getServerName() }}</p> -->
 
@@ -30,6 +30,11 @@
   >Add server
 </button>
 <!-- <p [innerText]="getAllowNewServer()"></p> -->
-<p>{{ getServerCreation() }}</p>
+<!-- <p>{{ getServerCreation() }}</p> -->
+<p *ngIf="serverCreated; else noServer">Server was created, server name is {{serverName}}</p>
 <app-server></app-server>
 <app-server></app-server>
+
+<ng-template #noServer>
+  <p>No server was created!</p>
+</ng-template>

@@ -1,0 +1,17 @@
+Directives são intruções no DOM!
+
+  * -> Uso de '*' por ser uma diretiva estrutural.
+
+1. *ngIf - Renderização condicional. Adiciona e remove elements da DOM!
+  1.1 - É possível utilizar junto ao ngIf um Else: *ngIf="...; else algumTemplate"
+    IMPORTANTE:
+      1. É preciso criar um template para o caso do else dentro do ngIf:
+        Ex. <ng-template> <p> algumDado </p> </ng-template>
+      2. O template a ser criado e utilizado pelo Else deve ser da mesma estrutura
+      do ngIf.
+        Ex. <p ngIf:"isTrue; else algumTemplate"> true </p>
+        O Template criado deve ser uma tag de parágrafo (p), não pode ser por exemplo um botão!
+      3. O Template deve ter uma marcação (id) para sua identificação:
+        Ex. <ng-template #algumTemplate> </ng-template>
+      4. O Template irá substituir em caso negativo.
+
