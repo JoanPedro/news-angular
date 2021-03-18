@@ -18,6 +18,8 @@ Business Logic ==> Template HTML
 
   1. Two-way Databinding -> [(ngModel)]="data"
 
-String interpolation: Mostrar algo em Tela {{ data }}
-Property binding: Mudar alguma propriedade de um elemento HTML / diretiva de um componente [ property ]
-Event binding: Interceptar eventos ( eventName )
+1. String interpolation: Mostrar algo em Tela {{ data }}
+2. Property binding: Mudar alguma propriedade de um elemento HTML / diretiva de um componente [ property ]
+3. Event binding: Interceptar eventos ( eventName )
+  $event -> Todo evento produz algum tipo de dado. Um input transporta o que foi inserido. Já
+    um click, transporta um objeto com por exemplo a coordenada que foi pressionada.

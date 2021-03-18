@@ -9,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
 
-  private allowNewServer = false;
-  private serverCreation = "No server criation at least!"
+  private allowNewServer: boolean = false;
+  private serverCreation: string = "No server criation at least!"
+  private serverName: string;
 
   constructor() {
     setTimeout(() => {
@@ -20,7 +21,7 @@ export class ServersComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public getAllowNewServer: () => boolean = () => {
+  public getAllowNewServer: () => Boolean = () => {
     return this.allowNewServer;
   }
 
@@ -30,5 +31,17 @@ export class ServersComponent implements OnInit {
 
   public onCreateServer: () => void = () => {
     this.serverCreation = 'Server was created!';
+  }
+
+  public onUpdateServerName: (event: Event) => void = (event) => {
+    // Casting
+    // this.serverName = (<HTMLInputElement> event.target).value;
+
+    // TSX mode with alias
+    this.serverName = (event.target as HTMLInputElement).value;
+  }
+
+  public getServerName: () => String = () => {
+    return this.serverName;
   }
 }
