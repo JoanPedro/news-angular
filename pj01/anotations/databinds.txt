@@ -23,3 +23,5 @@ Business Logic ==> Template HTML
 3. Event binding: Interceptar eventos ( eventName )
   $event -> Todo evento produz algum tipo de dado. Um input transporta o que foi inserido. Já
     um click, transporta um objeto com por exemplo a coordenada que foi pressionada.
+4. Two-way Databinding é necessário adicionar "FormsModule" ao array de Imports do app.module
+

@@ -1,9 +1,28 @@
 <label> Server name </label>
-<input
+<!-- <input
   type="text"
   class="form-control"
   (input)="onUpdateServerName($event)"
-> <p>{{ getServerName() }}</p>
+>  -->
+
+<!-- Modo mais usual, usando ngModel como two-way bindings -->
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="serverName"
+>
+
+<!-- Long Form, usando ngModels separadamente com getter e setter -->
+<!-- É mais longo mas mais legível -->
+<input
+  type="text"
+  class="form-control"
+  [ngModel]="getServerName()"
+  (ngModelChange)="setServerName($event)"
+>
+
+<!-- <p>{{ getServerName() }}</p> -->
+
 <button
   class="btn btn-primary"
   [disabled]="!getAllowNewServer()"

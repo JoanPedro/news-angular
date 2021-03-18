@@ -11,7 +11,7 @@ export class ServersComponent implements OnInit {
 
   private allowNewServer: boolean = false;
   private serverCreation: string = "No server criation at least!"
-  private serverName: string;
+  serverName: string;
 
   constructor() {
     setTimeout(() => {
@@ -30,7 +30,7 @@ export class ServersComponent implements OnInit {
   }
 
   public onCreateServer: () => void = () => {
-    this.serverCreation = 'Server was created!';
+    this.serverCreation = `Server was created! Name is ${this.getServerName()}`;
   }
 
   public onUpdateServerName: (event: Event) => void = (event) => {
@@ -43,5 +43,11 @@ export class ServersComponent implements OnInit {
 
   public getServerName: () => String = () => {
     return this.serverName;
+  }
+
+  // Recebe $event, mas não é um tipo Event! Retorna justamente uma string.
+  public setServerName: (value: string) => void = (value) => {
+    console.log(value)
+    this.serverName = value;
   }
 }
