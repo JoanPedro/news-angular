@@ -17,3 +17,7 @@ Business Logic ==> Template HTML
                         <==>
 
   1. Two-way Databinding -> [(ngModel)]="data"
+
+String interpolation: Mostrar algo em Tela {{ data }}
+Property binding: Mudar alguma propriedade de um elemento HTML / diretiva de um componente [ property ]
+Event binding: Interceptar eventos ( eventName )
