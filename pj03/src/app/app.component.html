@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <label> Username </label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="userName">
+      <p> {{ userName }} </p>
+      <button
+        class="btn"
+        [ngClass]="isEmpty(userName) ? 'btn-secondary' : 'btn-primary'"
+        [disabled]="isEmpty(userName)"
+        (click)="clearUserName()"
+      >Reset</button>
+    </div>
+  </div>
+</div>
+<hr>
