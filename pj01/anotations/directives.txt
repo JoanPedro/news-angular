@@ -16,12 +16,26 @@ Directives são intruções no DOM!
       4. O Template irá substituir em caso negativo.
 
 2. ngStyle - Uma propriedade fornecida pelo angular, responsável por mudar dinamicamente
-  estilos de um objeto.
-  2.1 - Pelo fato de ser uma propriedade, é necessário utilizar o artifício de binding:
+  estilos de um elemento html.
+  2.1 - Pelo fato de ser uma propriedade, é necessário utilizar o artifício de property binding:
     Ex. [ngStyle]="someObject"
   2.2 - Ele espera como atribuição um OBJETO!
     2.2.1 - O objeto espero deve ser do tipo Atributo valor-par:
       Ex. { a = b, c = d}...
     2.2.2 - A chave do Objeto deve ser uma propriedade CSS:
       Ex. 'background-color' ou backgroundColor. Os dois tipos funcionam
+    2.2.3 - O valor deve resolver para um valor válido para a respectiva propriedade CSS.
+      Ex. [ngStyle]="backgroundColor: 'red'"
+
+3. ngClass - Uma propriedade fornecida pelo angular, responsável por mudar dinamicamente
+  classes de um elemento html.
+  2.1 - Pelo fato de ser uma propriedade, é necessário utilizar o artifício de property binding:
+    Ex. [ngClass]="someObject"
+  2.2 - Ele espera como atribuição um OBJETO!
+    2.2.1 - O objeto espero deve ser do tipo Atributo valor-par:
+      Ex. { a = b, c = d}...
+    2.2.2 - A chave do Objeto deve ser uma classe CSS (Definida pelo componente - server.component.css):
+      Ex. 'online'.
+    2.2.3 - O valor deve resolver para Boolean.
+      Ex. [ngClass]="{online: true}"
 
