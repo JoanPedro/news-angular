@@ -1,0 +1,27 @@
+Modules:
+
+1. Para encapsular components de uma respectiva feature/comportamento, é necessário criar
+  módulos.
+2. Para criar módulos, deve-se utilizar a anotação "NgModule".
+3. Deve-se exportar somente o componente PAI que englobará todos os compoentes.
+
+  Ex.
+  @NgModule({
+    declarations: [
+      RecipesComponent,
+      RecipeListComponent,
+      RecipeDetailComponent,
+      RecipeItemComponent
+    ],
+    imports: [
+      FormsModule
+    ],
+    exports: [
+      RecipesComponent
+    ],
+    providers: [],
+    bootstrap: [RecipesComponent]
+  })
+  export class RecipesModule {}
+
+  Logo, o módulo que exportar o "RecipesModule" só terá acesso ao compoente RecipesComponent!
