@@ -1,0 +1,16 @@
+<button
+  (click)="handleButtonClick()"
+>
+  Display Details
+</button>
+
+<p *ngIf="getParagraphState()">Secret password = {{ secretPassword }}</p>
+
+<ul>
+  <li *ngFor="let log of buttonLogs; let i = index"
+    [ngClass]=" i >= 5 ? 'witheFont' : null"
+    [ngStyle]="i >= 5 ? { backgroundColor: 'blue' } : null"
+  >
+    {{ log }}
+  </li>
+</ul>
