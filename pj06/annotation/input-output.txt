@@ -1,0 +1,41 @@
+Entrada e saídade dados:
+
+1. @Input() é utilizado para passar dados do componente pai -> filho
+  1.1 Em sua grande maioria, é feito por PROPERTY BINDING!
+    <app-some-component [inputAtributeOnChieldren]="someValue></app-some-component>
+
+  Ex.
+    <No component FILHO>
+    @Input()
+    serverElement: ServerElements;
+    ...
+    <app-child [serverElement]="serveElement"></app-child>
+    serverElements: Array<ServerElements> = [{
+      type: 'server',
+      name: 'Testserver',
+      content: 'Just a test'
+    }];
+
+2. @Output() é utilizado para passar dados do componente filho -> pai
+  1.1 em sua grande maioria, é feito por EVENT BINDING!
+    <app-some-component (onEventTrigger)="setSomeValue($event)"
+
+  Ex.
+    <No component FILHO -> Emitindo um evento do tipo 'ServerData'>
+    @Output() serverCreated = new EventEmitter<ServerData>();
+
+    onAddServer() {
+      this.serverCreated.emit({
+        serverName: this.newServerName,
+        serverContent: this.newServerContent
+      });
+    }
+    ...
+    <app-child (serverCreated)="onServerAdded($event)"></app-child>
+    onServerAdded(serverData: ServerData) {
+      this.serverElements.push({
+        type: 'server',
+        name: serverData.serverName,
+        content: serverData.serverContent
+      });
+    }
