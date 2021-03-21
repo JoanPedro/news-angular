@@ -1,5 +1,5 @@
 import { ServerElements } from './../app.component';
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild, ViewEncapsulation, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -23,6 +23,9 @@ export class ServerElementComponent implements
   @Input()
   name: String;
 
+  @ViewChild('heading')
+  header: ElementRef;
+
   newServerName = '';
   newServerContent = '';
 
@@ -32,7 +35,7 @@ export class ServerElementComponent implements
 
   ngOnChanges(changes: SimpleChanges) {
     console.log("ngOnChanges Called!");
-    console.log(changes)
+    console.log(changes);
   }
 
   ngOnInit(): void {
@@ -53,6 +56,7 @@ export class ServerElementComponent implements
 
   ngAfterViewInit(): void {
     console.log("ngAfterViewInit Called!");
+    console.log("Text Content: " + (this.header.nativeElement as HTMLDivElement).textContent);
   }
 
   ngAfterViewChecked(): void {
