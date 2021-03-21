@@ -9,7 +9,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class ServerElementComponent implements OnInit {
 
-  @Input()
+  @Input('srvElement')
   serverElement: ServerElements;
 
   newServerName = '';
