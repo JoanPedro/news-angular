@@ -1,0 +1,38 @@
+Template reference:
+
+É possível possível substituir algumas diretivas caso utilize reference:
+
+  1. Pode ser substituída a diretiva [(ngModel)] de um input, por uma referencia:
+
+    Antes:
+      <input type="text" class="form-control" [(ngModel)]="newServerName">
+
+    Depois:
+      <input type="text" class="form-control" #serverNameInput>
+
+    Desta forma, é possível utilizar o "serverNameInput" dentro do próprio template html;
+    passando como argumento em uma função:
+      (click)="onAddServer(serverNameInput)">Add Server</button>
+
+    Neste caso, a função "onAddServer" recebera como argumento um ELEMENTO HTML! Que neste
+    caso é um input:
+      onAddServer(nameInput: HTMLInputElement) {...}
+      - E para obter o valor é simples: nameInput.value.
+
+  2. É possível utilizar uma "@ViewChild()" sendo settado antes do ciclo ngAfterViewInit
+
+    É um Elemento de Referencia, que resolve para um Elemento HTML nativo qualquer
+
+    Antes:
+      <input type="text" class="form-control" [(ngModel)]="newServerContent">
+
+    Depois:
+      <input type="text" class="form-control" #serverContentInput>
+
+    Desta forma, é possível utilizar o "serverContentInput" dentro do component TS:
+      @ViewChild('serverContentInput')
+      serverContentInput: ElementRef;
+      - E para obter o valor é simples: (ALIAS)
+        (this.serverContentInput.nativeElement as HTMLInputElement).value
+        ou (CASTING)
+        (<HTMLInputElement> this.serverContentInput.nativeElement).value
