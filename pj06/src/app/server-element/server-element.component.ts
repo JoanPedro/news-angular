@@ -1,5 +1,5 @@
 import { ServerElements } from './../app.component';
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild, ViewEncapsulation, ElementRef } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild, ViewEncapsulation, ElementRef, ContentChild } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -26,6 +26,9 @@ export class ServerElementComponent implements
   @ViewChild('heading')
   header: ElementRef;
 
+  @ContentChild('contentParagraph')
+  paragraph: ElementRef;
+
   newServerName = '';
   newServerContent = '';
 
@@ -33,13 +36,13 @@ export class ServerElementComponent implements
     console.log("Constructor Called!");
   }
 
+  ngOnInit(): void {
+    console.log("ngOnInit Called!");
+  }
+
   ngOnChanges(changes: SimpleChanges) {
     console.log("ngOnChanges Called!");
     console.log(changes);
-  }
-
-  ngOnInit(): void {
-    console.log("ngOnInit Called!");
   }
 
   ngDoCheck(): void {
@@ -48,6 +51,7 @@ export class ServerElementComponent implements
 
   ngAfterContentInit(): void {
     console.log("ngAfterContentInit Called!");
+    console.log("Text Content: " + (this.paragraph.nativeElement as HTMLParagraphElement).textContent);
   }
 
   ngAfterContentChecked(): void {
