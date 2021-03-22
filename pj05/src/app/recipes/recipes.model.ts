@@ -1,4 +1,4 @@
-export class RecipeModule {
+export class RecipeModel {
   constructor(
     private readonly name: string,
     private readonly description: string,

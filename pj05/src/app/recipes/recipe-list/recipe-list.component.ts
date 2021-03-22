@@ -1,4 +1,4 @@
-import { RecipeModule } from '../recipes.model';
+import { RecipeModel } from '../recipes.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeListComponent implements OnInit {
 
-  recipes: Array<RecipeModule> = [
-    new RecipeModule(
+  recipes: Array<RecipeModel> = [
+    new RecipeModel(
       'A Test recipe',
       ' This is simply a test',
       'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg'
