@@ -1,7 +1,7 @@
 export class Ingredient {
   constructor(
-    private readonly name: string,
-    private readonly amoumt: number
+    private readonly name: String,
+    private readonly amoumt: Number
   ) {}
 
   getName(): String {
