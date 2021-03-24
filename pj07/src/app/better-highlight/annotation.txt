@@ -1,0 +1,9 @@
+A utilização da anotação @HostBinding('') está diretamente relacionada ao tipo
+definido pelo angular: ElementRef!
+
+Exemplo modificando diretamente o ElementRef:
+  - (this.elementRef.nativeElement as HTMLElement).style.backgroundColor
+
+Exemplo modificando utilizando HostBinding
+  - @HostBinding('style.backgroundColor') backgroundColor: string;
+  ... this.backgroundColor = 'transparent';
