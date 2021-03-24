@@ -1,0 +1,9 @@
+Após criação da diretiva, é preciso registra-la no módulo do componente.
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    BasicHighlightDirective,
+  ],
+  ...
+})
