@@ -30,3 +30,12 @@ Ex. Supondo que existe 3 Services: AccountService, LogginService, SaveService
 
 IMPORTANTE!!! -> NAS VERSÕES MAIS NOVAS DO ANGULAR (8+) É RECOMENDANDO QUE TODOS OS SERVICES
 SEJAM ANOTADOS COM @INJECTABLE() !!
+
+É possível realizar comunicação entre componentes:
+
+  1. Cada componente deve possuir a mesma instância de SERVICE
+  2. O Serviço deve ter uma propriedade definidade como EventEmmiter;
+  3. O Emissor deve Emitir o respectivo evento; com EventEmmiter.emit(someValue);
+  4. O Receptor deve se registrar (SUBSCREVER) ao evento em questão; com EventEmmiter.subscriber:
+    4.1. O Subscriber recebe uma função de callback: (someValue: Tipo) => AçãoASerRealizada.
+    4.2. Registra manipuladores para eventos emitidos por esta instância.
