@@ -1,0 +1,17 @@
+Para usar a injeção de dependencias do angular:
+
+1. Criar um serviço;
+2. Injetar esse serviço no componente que deseja usar;
+3. Definir como metadata da annnotations, seus providers (SERVICES = PROVIDES)
+
+IMPORTANTE: Existe uma hierarquia de instâncias para providers:
+
+  1. Se um providers é definido no Topo da aplicação, por exemplo APP, a instância
+    definida nesse componente é repassado para todos os seus filhos. Logo, não é precisso
+    definidir nos filhos o array de PROVIDERS, e sim, somente definilos no constructor.
+
+  1.1. Caso um mesmo providers seja definido no PAI e NO FILHO, ambos terão uma instância
+    do providers (SERVICE) mas serão instâncias diferentes! Logo, se um service possui estado,
+    seu estado não será compartilhado entre componente. Visto que são instâncias diferentes.
+
+

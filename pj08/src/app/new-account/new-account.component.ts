@@ -7,7 +7,7 @@ import { LogginService } from './../shared/logging.service';
   selector: 'app-new-account',
   templateUrl: './new-account.component.html',
   styleUrls: ['./new-account.component.css'],
-  providers: [LogginService, AccountService]
+  providers: [LogginService]
 })
 export class NewAccountComponent {
   constructor(
@@ -15,7 +15,7 @@ export class NewAccountComponent {
     private readonly accountService: AccountService
   ) {}
 
-  onCreateAccount(name: string, a: string) {
+  onCreateAccount(name: string, status: string) {
     this.accountService.addAccount({ name, status })
     this.logginService.logStatusChange(status);
   }

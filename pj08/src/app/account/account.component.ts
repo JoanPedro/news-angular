@@ -1,4 +1,4 @@
-import { AccountService } from './../shared/accounts.service';
+import { AccountModel, AccountService } from './../shared/accounts.service';
 import { LogginService } from './../shared/logging.service';
 import { Component, Input } from '@angular/core';
 
@@ -6,10 +6,10 @@ import { Component, Input } from '@angular/core';
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css'],
-  providers: [LogginService, AccountService]
+  providers: [LogginService]
 })
 export class AccountComponent {
-  @Input() account: {name: string, status: string};
+  @Input() account: AccountModel;
   @Input() id: number;
 
   constructor(
