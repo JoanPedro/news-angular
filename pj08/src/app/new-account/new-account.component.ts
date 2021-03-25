@@ -13,7 +13,11 @@ export class NewAccountComponent {
   constructor(
     private readonly logginService: LogginService,
     private readonly accountService: AccountService
-  ) {}
+  ) {
+    this.accountService.getStatusUpdated().subscribe(
+      (status: String) => alert('New status: ' + status)
+    )
+  }
 
   onCreateAccount(name: string, status: string) {
     this.accountService.addAccount({ name, status })

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { LogginService } from './logging.service';
 
 @Injectable({
@@ -20,6 +20,8 @@ export class AccountService {
     }
   ];
 
+  private statusUpdated = new EventEmitter<String>();
+
   constructor(private readonly logginService: LogginService) {}
 
   public addAccount: (newAccount: AccountModel) => void = (newAccount) => {
@@ -34,6 +36,10 @@ export class AccountService {
 
   public getAccount: () => Array<AccountModel> = () => {
     return this.accounts;
+  }
+
+  public getStatusUpdated: () => EventEmitter<String> = () => {
+    return this.statusUpdated;
   }
 }
 
