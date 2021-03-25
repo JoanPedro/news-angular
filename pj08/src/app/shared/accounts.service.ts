@@ -1,3 +1,7 @@
+import { Injectable } from '@angular/core';
+import { LogginService } from './logging.service';
+
+@Injectable()
 export class AccountService {
   private accounts: Array<AccountModel> = [
     {
@@ -14,12 +18,16 @@ export class AccountService {
     }
   ];
 
+  constructor(private readonly logginService: LogginService) {}
+
   public addAccount: (newAccount: AccountModel) => void = (newAccount) => {
     this.accounts.push(newAccount);
+    this.logginService.logStatusChange(newAccount.status)
   }
 
   public updateStatus: (id: number, status: String) => void = (id, status) => {
     this.accounts[id].status = status;
+    this.logginService.logStatusChange(status)
   }
 
   public getAccount: () => Array<AccountModel> = () => {

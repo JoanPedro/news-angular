@@ -15,3 +15,18 @@ IMPORTANTE: Existe uma hierarquia de instâncias para providers:
     seu estado não será compartilhado entre componente. Visto que são instâncias diferentes.
 
 
+@Injectable()
+class anyClassName
+
+1. A anotação Injectable só deverá ser usada em services que recebem outros services
+
+Ex. Supondo que existe 3 Services: AccountService, LogginService, SaveService
+  1. O SaveService recebe via constructor (DEPENDECY INJECTION) outros 2 services:
+    AccountService e LogginService.
+
+  2. O angular precisa saber que o SaveService necessita das duas instâncias. Logo,
+    o SaveService precisa ser anotado com @Injectable(). Pois, existe serviços sendo
+    injetados nele. Ou seja, ele é um serviço "INJETÁVEL, PASSÍVEL DE INJEÇÃO DE DEPENDECIA"
+
+IMPORTANTE!!! -> NAS VERSÕES MAIS NOVAS DO ANGULAR (8+) É RECOMENDANDO QUE TODOS OS SERVICES
+SEJAM ANOTADOS COM @INJECTABLE() !!

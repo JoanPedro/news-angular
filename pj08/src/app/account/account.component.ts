@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css'],
-  providers: [LogginService]
+  // providers: [LogginService]
 })
 export class AccountComponent {
   @Input() account: AccountModel;
@@ -18,6 +18,6 @@ export class AccountComponent {
   ) {}
   onSetTo(status: string) {
     this.accountService.updateStatus(this.id, status);
-    this.logginService.logStatusChange(status);
+    // this.logginService.logStatusChange(status);
   }
 }
