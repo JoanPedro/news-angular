@@ -22,8 +22,4 @@ export class RecipesComponent implements OnInit {
         }
       );
   }
-
-  setSelectedRecipe(recipeEvent: RecipeModel) {
-    this.selectedRecipe = recipeEvent;
-  }
 }
