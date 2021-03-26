@@ -1,0 +1,15 @@
+- Serviços podem ser passados de Pai para filhos, e de filho para filhos do filho...
+
+1. O Pai precisa exportar e injetar no seu provider o respectivo service.
+  1.1 Não é necessário o mais injetar via contrutor o serviço.
+2. No caso do pai ter definido o provider, o filho pode simplesmente injetar no construtor
+  o respectivo service (provider);
+    Obs. O angular só precisa saber um modo de instanciar o serviço. Se já foi declarado no pai,
+    a mesma mesma instância será repassada pela hierarquia, de cima pra baixo.
+
+Serviços podem funcionar como um Cross-Component communication mais simplificado:
+  1. Deve ser uma mesma instância por toda árvore de componente
+  2. Um componente deve emitir um evento
+  3. Um componente deve sobrescrever à esse emissor de evento
+    Então quando um componente emitir um evento, o outro lado estará sempre escutando
+    por um evento.
