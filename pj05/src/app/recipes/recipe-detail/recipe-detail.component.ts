@@ -1,3 +1,4 @@
+import { RecipeService } from './../recipe.service';
 import { imageStyle } from './styles/image';
 import { RecipeModel } from './../recipes.model';
 import { Component, Input, OnInit } from '@angular/core';
@@ -13,9 +14,12 @@ export class RecipeDetailComponent implements OnInit {
 
   imageStyle = imageStyle;
 
-  constructor() { }
+  constructor(private readonly recipeService: RecipeService) { }
 
   ngOnInit(): void {
   }
 
+  onAddToShoppingList() {
+    this.recipeService.addIngredientToShoppingList(this.recipe.getIngredients());
+  }
 }

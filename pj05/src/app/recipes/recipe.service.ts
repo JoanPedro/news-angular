@@ -1,8 +1,10 @@
-import { EventEmitter } from '@angular/core';
+import { ShoppingListService } from './../shopping-list/shopping-list.service';
+import { EventEmitter, Injectable } from '@angular/core';
 
 import { RecipeModel } from './recipes.model';
 import { Ingredient } from './shared/ingredient.model';
 
+@Injectable()
 export class RecipeService {
   private recipeSelected = new EventEmitter<RecipeModel>();
 
@@ -27,6 +29,8 @@ export class RecipeService {
     )
   ];
 
+  constructor(private readonly shoppingListService: ShoppingListService) {}
+
   public getRecipe: () => Array<RecipeModel> = () => {
     // Retorna uma cópia do Array. -> Imutabilidade
     return this.recipes.slice();
@@ -34,5 +38,9 @@ export class RecipeService {
 
   public getRecipeSelected: () => EventEmitter<RecipeModel> = () => {
     return this.recipeSelected;
+  }
+
+  public addIngredientToShoppingList: (ingredients: Array<Ingredient>) => void = (ingredients) => {
+    this.shoppingListService.addIngredientsHere(ingredients);
   }
 }

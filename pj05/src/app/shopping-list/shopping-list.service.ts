@@ -19,4 +19,10 @@ export class ShoppingListService {
   public getIngredientAdd: () => EventEmitter<Array<Ingredient>> = () => {
     return this.ingredientAdded;
   }
+
+  public addIngredientsHere: (ingredients: Array<Ingredient>) => void = (ingredients) => {
+    // ingredients.forEach(ingredient => this.addIngredients(ingredient));
+    this.ingredients.push(...ingredients);
+    this.ingredientAdded.emit(this.getIngredients())
+  }
 }
