@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,10 +12,20 @@ export class UserComponent implements OnInit {
   constructor(private readonly route: ActivatedRoute) { }
 
   ngOnInit() {
+    // SNAPSHOT - ONE TIME
     this.user = {
       id: this.route.snapshot.params['id'],
       name: this.route.snapshot.params['name']
     }
+
+    // OBSERVABLE
+    this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.user.id = params['id'];
+          this.user.name = params['name'];
+        }
+      );
   }
 
 }
