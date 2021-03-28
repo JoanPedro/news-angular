@@ -1,3 +1,4 @@
+import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { ServersService } from '../servers.service';
@@ -12,9 +13,26 @@ export class EditServerComponent implements OnInit {
   serverName = '';
   serverStatus = '';
 
-  constructor(private serversService: ServersService) { }
+  constructor(
+    private serversService: ServersService,
+    private readonly route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+
+    // SNAPSHOT - NOT REACTIVELLY, ONCE TIME THAT COMPONENT CREATED
+    console.log(this.route.snapshot.queryParams);
+    console.log(this.route.snapshot.fragment);
+
+    // OBSERVABLE PATTERN - REACTIVELLY
+    this.route.queryParams.subscribe(
+      (queryParam: Params) => { console.log(queryParam['allowEdit']) }
+    );
+
+    this.route.fragment.subscribe(
+      (queryParam: String) => { console.log(queryParam) }
+    );
+
     this.server = this.serversService.getServer(1);
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
