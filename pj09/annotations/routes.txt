@@ -1,22 +1,56 @@
-Você deve atribuir um componente à uma rota específica:
+=> Você deve atribuir um componente à uma rota específica:
 
-Ex:
-  const appRoutes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'users', component: UsersComponent },
-    { path: 'servers', component: ServersComponent }
-  ];
+  Ex:
+    const appRoutes: Routes = [
+      { path: '', component: HomeComponent },
+      { path: 'users', component: UsersComponent },
+      { path: 'servers', component: ServersComponent }
+    ];
 
-1. Deve adicionar " <router-outlet></router-outlet> " para funcionar a chamada "AJAX"
-  e não recarregar a página, e sim funcionar dinâmicamente.
+  1. Deve adicionar " <router-outlet></router-outlet> " para funcionar a chamada "AJAX"
+    e não recarregar a página, e sim funcionar dinâmicamente.
 
-2. Se o ServersComponent possuir um componente filho:
-  2.1 Pode-se criar rotas da seguinte maneira:
-    - <a routerLink="servers"> </a>  OU <a routerLink="./servers"> </a>
-      RESULTADO => http://localhost:4200/servers/servers (Path Relativo)
+  2. Se o ServersComponent possuir um componente filho:
+    2.1 Pode-se criar rotas da seguinte maneira:
+      - <a routerLink="servers"> </a>  OU <a routerLink="./servers"> </a>
+        RESULTADO => http://localhost:4200/servers/servers (Path Relativo)
 
-    - <a routerLink="/servers"> </a>
-      RESULTADO => http://localhost:4200/servers (Path Absoluto)
+      - <a routerLink="/servers"> </a>
+        RESULTADO => http://localhost:4200/servers (Path Absoluto)
 
-    - <a routerLink="../servers"> </a>
-      RESULTADO => http://localhost:4200/servers (Path Navigation)
+      - <a routerLink="../servers"> </a>
+        RESULTADO => http://localhost:4200/servers (Path Navigation)
+
+=> Você pode estilizar dinâmicamente por exemplo, nav-tabs via routerLinks; podendo adicionar
+  classes CSS para quando uma rota específica estivar ativa.
+
+  1. routerLinkActive: Rastreia se a rota vinculada de um elemento está atualmente ativa
+    e permite que você especifique uma ou mais classes CSS para adicionar ao elemento quando
+    a rota vinculada está ativa.
+
+  2. routerLinkActiveOptions: É um boolean que define se o match de ativação deve ser exato
+    ou não. Visto que, por Ex. '/user' => o routerLinkActive ativará para as rotas '/' e 'user'.
+    Quando adicionado o  "routerLinkActiveOptions" você tem a opção de setar o path exato.
+
+    Ex.
+      <ul class="nav nav-tabs">
+        <li
+          role="presentation"
+          [routerLinkActiveOptions]="{exact: true}"
+          routerLinkActive="active"
+        ><a routerLink="/">Home</a></li>
+        <li
+          role="presentation"
+          routerLinkActive="active"
+        ><a routerLink="/servers">Servers</a></li>
+        <li
+          role="presentation"
+          routerLinkActive="active"
+        ><a [routerLink]="['/users']">Users</a></li>
+      </ul>
+
+    Está adicionando a classe "active" do bootstrap no componente html "li".
+    Utilizando property binding do angular: routerLinkActive
+
+
+
