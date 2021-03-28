@@ -56,3 +56,8 @@
     O routerNavigate, não sabe. Então, sempre estará na raiz; mas pode ser dinâmico, Utilizando
     extra properties do método.
 
+----
+  IMPORTANTE: É importante em todos os SUBSCRIBER (Como OBSERVABLE), unregistrar quando o
+    componente for destruído. O Angular consegue destruir o componente, mas na memória, O
+    subscriber ainda continua existindo. Portanto, em quaisquer subscrições por exemplo, no
+    ngOnInit(), é importante unregistrar no ngOnDestroy()!
