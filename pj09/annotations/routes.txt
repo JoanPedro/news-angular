@@ -52,5 +52,7 @@
     Está adicionando a classe "active" do bootstrap no componente html "li".
     Utilizando property binding do angular: routerLinkActive
 
-
+  OBS. O routerLink sempre saberá em qual componente ele está, e sua árvore parental.
+    O routerNavigate, não sabe. Então, sempre estará na raiz; mas pode ser dinâmico, Utilizando
+    extra properties do método.
 
