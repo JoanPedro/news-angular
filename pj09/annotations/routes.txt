@@ -61,3 +61,16 @@
     componente for destruído. O Angular consegue destruir o componente, mas na memória, O
     subscriber ainda continua existindo. Portanto, em quaisquer subscrições por exemplo, no
     ngOnInit(), é importante unregistrar no ngOnDestroy()!
+
+----
+  <router-outlet></router-outlet> : Refere-se à um Hook para as rotas definidas.
+  Se você define rotas que possuem filhos, é preciso que o pai contenha também um hook de
+  router-outlet!
+
+  { path: 'servers', component: ServersComponent, children: [
+    { path: ':id', component: ServerComponent },
+    { path: ':id/edit', component: EditServerComponent }
+  ]},
+
+  Todos os filhos serão renderizados no local da tag (Hook)!!
+----
