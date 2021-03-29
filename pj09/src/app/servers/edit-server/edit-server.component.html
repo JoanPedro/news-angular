@@ -1,4 +1,5 @@
-<div class="form-group">
+<h4 *ngIf="!allowEdit">You'rer not allowed to edit!</h4>
+<div *ngIf="allowEdit"><div class="form-group">
   <label for="name">Server Name</label>
   <input
     type="text"
@@ -16,6 +17,5 @@
     <option value="offline">Offline</option>
   </select>
 </div>
-<button
-  class="btn btn-primary"
-  (click)="onUpdateServer()">Update Server</button>
+<button class="btn btn-primary" (click)="onUpdateServer()">Update Server</button>
+</div>
