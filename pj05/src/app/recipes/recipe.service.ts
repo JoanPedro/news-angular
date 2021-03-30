@@ -16,7 +16,8 @@ export class RecipeService {
       [
         new Ingredient('Meat', 1),
         new Ingredient('Salad', 1),
-      ]
+      ],
+      0
     ),
     new RecipeModel(
       'Big Fat Burger',
@@ -25,7 +26,8 @@ export class RecipeService {
       [
         new Ingredient('Buns', 2),
         new Ingredient('Meat', 1),
-      ]
+      ],
+      1
     )
   ];
 
@@ -34,6 +36,10 @@ export class RecipeService {
   public getRecipe: () => Array<RecipeModel> = () => {
     // Retorna uma cópia do Array. -> Imutabilidade
     return this.recipes.slice();
+  }
+
+  public getRecipeById: (id: number) => RecipeModel = (id) => {
+    return this.getRecipe().find( model => model.getId() === id );
   }
 
   public getRecipeSelected: () => EventEmitter<RecipeModel> = () => {
