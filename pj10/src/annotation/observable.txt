@@ -12,3 +12,6 @@ Provido por pacote externo -> RXJS
       Causando memory leak!)
     Logo, é importante que garanta, caso necessário, sempre o ".unsubscriber" no canal.
 
+  Obs2. Todos os Observables padrões fornecidos pelo ANGULAR, não precisam ser explicidamente
+    "unsubscribeble" (DES-Sobrescrito), pois o ANGULAR já possui artifício que cuidam disso
+    por debaixo dos panos!
