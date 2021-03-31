@@ -1,0 +1,30 @@
+Template Forms:
+
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    ...
+    ...
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+
+  - Pelo formato padrão de "TEMPLATE FORM" do Angular, não é necessário realizar o
+    handle do evento (click) no botão de submit;
+  - Ao invés dessa abordagem, o Angular possui uma abordem em cima da tag "FORM"
+    - Toda vez que submetida, é gerado um evento/dado
+    - O Angular possui um "build-in" template-form para a tag "form" que é possível
+      justamente interceptar o dado submetido por meio do "Template literal" (#nomeQualquer)
+        Ex. <form (ngSubmit)="onSubmit(f)" #f="ngForm"></form>"
+    - Desta forma, o método "onSubmit" irá receber um parâmetro do tipo "NgForm" que criará
+      um objeto default que representa o formulário submetido dentro da propriedade "value"
+        Ex.
+          onSubmit(form: NgForm) {
+            const formValue: SimpleForm = form.value;
+            console.log(formValue)
+          }
+
+          export type SimpleForm = {
+            email: String,
+            secret: String,
+            username: String
+          }
+
+        Desta forma, o valor exibido será do tipo "SimpleForm".
