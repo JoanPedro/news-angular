@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CompletionObserver, interval, Observable, Subscription } from 'rxjs';
+import { Observable, Subscription  } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -28,8 +29,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       }, 1000);
     });
 
-    this.theObservableSubscription = customIntervalObservable.subscribe(
-      (data: number) => console.log(data),
+    this.theObservableSubscription = customIntervalObservable.pipe(
+      filter( (data: number) => data > 0),
+      map((data: number) => {
+        return 'Round: '.concat(`${data + 1}`);
+      })
+    ).subscribe(
+      (data: string) => console.log(data),
       (error: Error) => alert(error.message),
       () => { alert("This observer was completed")}
     );
