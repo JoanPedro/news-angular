@@ -15,3 +15,15 @@ Provido por pacote externo -> RXJS
   Obs2. Todos os Observables padrões fornecidos pelo ANGULAR, não precisam ser explicidamente
     "unsubscribeble" (DES-Sobrescrito), pois o ANGULAR já possui artifício que cuidam disso
     por debaixo dos panos!
+
+  Observable possui 3 ciclos: Next, Error e Completed
+    - Next: Uma função callback para receber notificações do próximo tipo do Observable,
+      com um valor. O Observable pode chamar este método 0 ou mais vezes.
+
+    - Error: Retorno de chamada para receber notificações de erro de tipo do Observable,
+      com um erro anexado. Notifica o observador de que o observável experimentou uma
+      condição de erro. E ele cancela o Observable sem completá-lo.
+
+    - Completed: Uma função callback para receber uma notificação sem valor do tipo completo
+      do Observable. Notifica o Observer que o Observable terminou de enviar notificações
+      baseadas em push.
