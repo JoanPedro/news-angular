@@ -1,0 +1,14 @@
+Provido por pacote externo -> RXJS
+
+1. É baseado no padrão Observer como um (Publish - Subscriber)
+
+  - De um lado tem o Observable e o Observer
+  - O canal de comunicação é uma stream de dados
+  - Utiliza-se o padrão REATIVO
+
+  Obs. Alguns (Grande maioria) dos observable, quando sobrescrito, não são descatados.
+    (Quando utiliza o ".Subscriber" em um observable, vc mantem o canal de dados aberto,
+      até dizer que é para fechar! Caso contrário, o mesmo continua em execução infinitamente.
+      Causando memory leak!)
+    Logo, é importante que garanta, caso necessário, sempre o ".unsubscriber" no canal.
+
