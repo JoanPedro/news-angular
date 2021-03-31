@@ -1,13 +1,12 @@
-import { ShoppingListService } from './../shopping-list/shopping-list.service';
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
+import { ShoppingListService } from './../shopping-list/shopping-list.service';
 import { RecipeModel } from './recipes.model';
 import { Ingredient } from './shared/ingredient.model';
 
 @Injectable()
 export class RecipeService {
-  private recipeSelected = new EventEmitter<RecipeModel>();
-
   private recipes: Array<RecipeModel> = [
     new RecipeModel(
       'Tasty Beef',
@@ -40,10 +39,6 @@ export class RecipeService {
 
   public getRecipeById: (id: number) => RecipeModel = (id) => {
     return this.getRecipe().find( model => model.getId() === id );
-  }
-
-  public getRecipeSelected: () => EventEmitter<RecipeModel> = () => {
-    return this.recipeSelected;
   }
 
   public addIngredientToShoppingList: (ingredients: Array<Ingredient>) => void = (ingredients) => {
