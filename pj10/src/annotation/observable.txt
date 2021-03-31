@@ -27,3 +27,8 @@ Provido por pacote externo -> RXJS
     - Completed: Uma função callback para receber uma notificação sem valor do tipo completo
       do Observable. Notifica o Observer que o Observable terminou de enviar notificações
       baseadas em push.
+
+- É possível substituir um EventEmitter por um Subject do RXJS!
+  - Ao invés de emitir um evento, simplemente chama-se o "next()" no lugar do emit.
+  - Com um SUBJECT é possível fazer a chamada do "next()" fora de um OBSERVABLE!
+    - Caso Observable, só é possível dentro do context (método)

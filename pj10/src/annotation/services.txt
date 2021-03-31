@@ -1,0 +1,8 @@
+Se na anotação de um serviço:
+
+@Injectable({
+  providedId: 'root'
+})
+className...
+
+- Não é preciso adicionar no array de Providers (providers: []) no appModule!
