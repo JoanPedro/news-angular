@@ -63,3 +63,11 @@ Template Forms:
   - É importante verificar o Two-Way Binding (Event + Property) => [(ngModel)]="answer"
     1. No componenteTS é necessário declarar a propriedade 'answer'
     2. No template HTML, acessar o dado via templateString => {{ answer }}
+
+!IMPORTANT ngModel FORMS:
+  - Três formas:
+    1. No Binding: Somente dizer ao angular que por exemplo, que um input é somente um controle;
+      e para realizar o controle do formulário: ngModel
+    2. One-Way Binding: Para fornecer ao controlador um valor padrão: [ngModel] = "..."
+    3. Two-Way Binding: Para fornecer instantâneamente uma saída para o controle ou fazer
+      o que você equiser com o valor.
