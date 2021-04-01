@@ -6,6 +6,10 @@ Template Forms:
     <button class="btn btn-primary" type="submit">Submit</button>
   </form>
 
+  - É importante que todos dados que precisam ser persistidos no objeto a ser criado
+    devem estar com a diretiva "ngModel":
+      Ex. <input ngModel> </input>
+      - Isso permitirá que o Angular consiga identificar e realizar o binding do dado.
   - Pelo formato padrão de "TEMPLATE FORM" do Angular, não é necessário realizar o
     handle do evento (click) no botão de submit;
   - Ao invés dessa abordagem, o Angular possui uma abordem em cima da tag "FORM"
@@ -28,3 +32,19 @@ Template Forms:
           }
 
         Desta forma, o valor exibido será do tipo "SimpleForm".
+
+- Default value:
+  Ex.
+    <select
+      id="secret"
+      class="form-control"
+      [ngModel]="defaultQuestion"
+      name="secret"
+    >
+      <option value="pet">Your first Pet?</option>
+      <option value="teacher">Your first teacher?</option>
+    </select>
+  - É importante notar o One-Way binding do ngModel -> [ngModel], ele que realizará o parse
+    informação. No caso da tag 'select', o valor atribuído poderia ser simplesmente um dos
+    valores contidos nas options: 1. [ngModel]="'pet'" ou [ngModel]="'teacher'".
+  - No caso exemplo, o componente.TS possui uma propriedade que encapsula isso.

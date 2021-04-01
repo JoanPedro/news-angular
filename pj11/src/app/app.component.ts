@@ -10,6 +10,7 @@ export class AppComponent {
 
   @ViewChild('formObject', { static: false })
   signupForm: NgForm;
+  answer: String;
 
   defaultQuestion: String = 'pet';
 
@@ -28,8 +29,9 @@ export class AppComponent {
   }
 }
 
-export type SimpleForm = {
+type SimpleForm = {
   email: String,
   secret: String,
-  username: String
+  username: String,
+  questionAnswer: String
 }
