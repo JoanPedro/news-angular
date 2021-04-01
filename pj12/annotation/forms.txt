@@ -8,3 +8,14 @@ Reactive Forms:
       'email': new FormControl(null),
       'gender': new FormControl('male')
     })
+
+    ...
+
+    ( AppModule... imports[..., ReactiveFormsModule] )
+
+    <form [formGroup]="signupForm">
+      ...
+      <input formControlName="username"></input>
+        ou
+      <input [formControlName]="'username'"></input>
+    </form>
