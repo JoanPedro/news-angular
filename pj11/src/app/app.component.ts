@@ -54,6 +54,8 @@ export class AppComponent {
     console.log(form);
 
     this.generatedUserByForm = this.signupForm.value;
+
+    this.signupForm.reset();
   }
 }
 
