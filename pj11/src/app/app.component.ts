@@ -43,14 +43,19 @@ export class AppComponent {
     const formValue: SimpleForm = this.signupForm.value;
     const form: NgForm = this.signupForm;
 
-    console.log("Custom: " + formValue);
-    console.log("Grouped: " + form)
+    console.log(formValue);
+    console.log(form);
   }
 }
 
 type SimpleForm = {
-  email: String,
+  userData: UserData,
   secret: String,
+  questionAnswer: String,
+  gender: String
+}
+
+type UserData = {
   username: String,
-  questionAnswer: String
+  email: String
 }
