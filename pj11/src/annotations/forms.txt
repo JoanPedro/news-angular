@@ -48,3 +48,18 @@ Template Forms:
     informação. No caso da tag 'select', o valor atribuído poderia ser simplesmente um dos
     valores contidos nas options: 1. [ngModel]="'pet'" ou [ngModel]="'teacher'".
   - No caso exemplo, o componente.TS possui uma propriedade que encapsula isso.
+
+- Display some input test by two-way data binding:
+  Ex.
+    <div class="form-group">
+      <textarea
+        name="questionAnswer"
+        rows="3"
+        class="form-control"
+        [(ngModel)]="answer"
+      ></textarea>
+    </div>
+    <p>Your reply: {{ answer }}</p>
+  - É importante verificar o Two-Way Binding (Event + Property) => [(ngModel)]="answer"
+    1. No componenteTS é necessário declarar a propriedade 'answer'
+    2. No template HTML, acessar o dado via templateString => {{ answer }}
