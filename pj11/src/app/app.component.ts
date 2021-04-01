@@ -10,11 +10,16 @@ export class AppComponent {
 
   @ViewChild('formObject', { static: false })
   signupForm: NgForm;
+
   answer: String;
+
   genders: Array<String> = ['male', 'female'];
+  defaultGender: String = 'male';
 
   defaultQuestion: String = 'pet';
-  defaultGender: String = 'male';
+
+  generatedUserByForm: SimpleForm;
+  submitted: boolean = false;
 
   suggestUserName() {
     const suggestedName = 'Superuser';
@@ -40,11 +45,15 @@ export class AppComponent {
   // }
 
   onSubmit() {
+    this.submitted = true;
+
     const formValue: SimpleForm = this.signupForm.value;
     const form: NgForm = this.signupForm;
 
     console.log(formValue);
     console.log(form);
+
+    this.generatedUserByForm = this.signupForm.value;
   }
 }
 

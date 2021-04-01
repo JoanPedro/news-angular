@@ -73,6 +73,17 @@
           [disabled]="!formObject.valid"
         >Submit</button>
       </form>
+      <hr>
+    </div>
+  </div>
+  <div *ngIf="submitted" class="row">
+    <div class="col-xs-12">
+      <h3>Your data</h3>
+      <p>Username: {{ generatedUserByForm.userData.username }}</p>
+      <p>Mail: {{ generatedUserByForm.userData.email }}</p>
+      <p>Secret Question: {{ generatedUserByForm.secret}}</p>
+      <p>Answer: {{ generatedUserByForm.questionAnswer}}</p>
+      <p>Gender: {{ generatedUserByForm.gender }}</p>
     </div>
   </div>
 </div>
