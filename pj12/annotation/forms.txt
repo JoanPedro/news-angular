@@ -30,3 +30,7 @@ Reactive Forms:
 
     que no componenteTS, ao se submetido o formulário, já irá possuir o respectivo
     objeto de valores. (Resultado)
+
+  - A validação (Com validadores) é feita do lado do componenteTS. Uma vez que no template
+    HTML é somente realizada a SINCRONIZAÇÃO do TEMPLATE COM O FORM CRIADO no componenteTS
+
