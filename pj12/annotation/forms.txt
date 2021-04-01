@@ -1,0 +1,10 @@
+Reactive Forms:
+
+ Ex.
+  signupForm: FormGroup;
+
+    this.signupForm = new FormGroup({
+      'username':  new FormControl(null),
+      'email': new FormControl(null),
+      'gender': new FormControl('male')
+    })
