@@ -19,3 +19,14 @@ Reactive Forms:
         ou
       <input [formControlName]="'username'"></input>
     </form>
+
+  No modelo reativo, não é necessário definir uma Referência de template html.
+  Visto que já possui o modelo de Formulário criado anteriormente (No componenteTS)
+
+  - Desta forma, só é necessário realizar o event binding da diretiva ngSubmit:
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    ...
+    </form>
+
+    que no componenteTS, ao se submetido o formulário, já irá possuir o respectivo
+    objeto de valores. (Resultado)
