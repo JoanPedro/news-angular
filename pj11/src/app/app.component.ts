@@ -11,6 +11,7 @@ export class AppComponent {
   @ViewChild('formObject', { static: false })
   signupForm: NgForm;
   answer: String;
+  genders: Array<String> = ['male', 'female'];
 
   defaultQuestion: String = 'pet';
 
