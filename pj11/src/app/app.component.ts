@@ -14,6 +14,7 @@ export class AppComponent {
   genders: Array<String> = ['male', 'female'];
 
   defaultQuestion: String = 'pet';
+  defaultGender: String = 'male';
 
   suggestUserName() {
     const suggestedName = 'Superuser';
