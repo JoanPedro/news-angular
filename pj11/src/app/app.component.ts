@@ -25,7 +25,10 @@ export class AppComponent {
 
   onSubmit() {
     const formValue: SimpleForm = this.signupForm.value;
-    console.log(formValue)
+    const form: NgForm = this.signupForm;
+
+    console.log("Custom: " + formValue);
+    console.log("Grouped: " + form)
   }
 }
 

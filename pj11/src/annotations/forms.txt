@@ -71,3 +71,19 @@ Template Forms:
     2. One-Way Binding: Para fornecer ao controlador um valor padrão: [ngModel] = "..."
     3. Two-Way Binding: Para fornecer instantâneamente uma saída para o controle ou fazer
       o que você equiser com o valor.
+
+- Agrupando dados e construindo objetos via Template Forms:
+  <form (ngSubmit)="onSubmit()" #formObject="ngForm">
+    <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup"> ... <div/>
+    <div id="user-details" ngModelGroup="userDetails" #userDatails="ngModelGroup"> ... <div/>
+  </form>
+
+  - Com a diretiva: 'ngModelGroup', ao submeter esse formulário, o ngForm.value terá construído
+    um objeto mais inteligente, sendo a chave do objeto de nome igual ao definido na diretiva
+    ngModelGroup.
+  - É possível acessar um Grupo via referência local e/ou (exemplo) @ViewChield('userData')
+  - Dessa forma é possível verificar se um groupo de controle é totalmente VÁLIDO, por exemplo,
+    e não somente uma entrada em específico.
+  E fazer coisas do tipo:
+    Ex. <p *ngIf="!userData.valid && userData.touched">User Data is invalid</p>
+    userData -> É a referência local #userData
