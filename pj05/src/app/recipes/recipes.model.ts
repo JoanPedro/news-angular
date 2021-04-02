@@ -6,17 +6,17 @@ export class RecipeModel {
     private readonly imagePath: string,
     private readonly ingredients: Array<Ingredient>,
     private readonly id: number
-  ) { }
+  ) {}
 
-  getName(): String {
+  getName(): string {
     return this.name;
   }
 
-  getDescription(): String {
+  getDescription(): string {
     return this.description;
   }
 
-  getImagePath(): String {
+  getImagePath(): string {
     return this.imagePath;
   }
 
@@ -24,7 +24,7 @@ export class RecipeModel {
     return this.ingredients;
   }
 
-  getId(): Number {
+  getId(): number {
     return this.id;
   }
 }
