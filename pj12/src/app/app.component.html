@@ -65,7 +65,7 @@
         >
         Please enter a valid data!
         </span>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button [disabled]="!signupForm.valid" class="btn btn-primary" type="submit">Submit</button>
       </form>
     </div>
   </div>
