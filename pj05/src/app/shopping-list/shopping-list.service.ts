@@ -30,6 +30,12 @@ export class ShoppingListService {
     return this.ingredientAdded;
   };
 
+  public deleteIngredient(index: number) {
+    console.log(index);
+    this.ingredients.splice(index, 1);
+    this.ingredientAdded.next(this.getIngredients());
+  }
+
   public addIngredientsHere: (ingredients: Array<Ingredient>) => void = (
     ingredients
   ) => {

@@ -40,13 +40,15 @@
             class="btn btn-danger"
             style="margin-right: 0.5rem"
             type="button"
+            (click)="handleDeleteButton()"
+            *ngIf="editMode"
           >
             Delete
           </button>
           <button
             class="btn btn-primary"
             type="button"
-            (click)="handleClearButton(templateForm)"
+            (click)="handleClearButton()"
           >
             Clear
           </button>
