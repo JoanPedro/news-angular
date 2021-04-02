@@ -34,7 +34,7 @@
             type="submit"
             [disabled]="!templateForm.valid"
           >
-            Add
+            {{ editMode ? "Update" : "Add" }}
           </button>
           <button
             class="btn btn-danger"
