@@ -1,6 +1,12 @@
+import { RecipeModel } from './../recipes.model';
 import { RecipeService } from './../recipe.service';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {
+  AbstractControl,
+  FormArray,
+  FormControl,
+  FormGroup,
+} from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -36,20 +42,42 @@ export class RecipeEditComponent implements OnInit {
     let recipeName: string = '';
     let recipeImagePath: string = '';
     let recipeDescription: string = '';
+    let recipeIngredients: FormArray = new FormArray([]);
     if (this.editMode) {
-      recipeName = this.recipeService.getRecipeById(this.id).getName();
-      recipeImagePath = this.recipeService
-        .getRecipeById(this.id)
-        .getImagePath();
-      recipeDescription = this.recipeService
-        .getRecipeById(this.id)
-        .getDescription();
+      const recipe: RecipeModel = this.recipeService.getRecipeById(this.id);
+      recipeName = recipe.getName();
+      recipeImagePath = recipe.getImagePath();
+      recipeDescription = recipe.getDescription();
+      if (recipe['ingredients']) {
+        recipe.getIngredients().forEach((ingredient) =>
+          recipeIngredients.push(
+            new FormGroup({
+              name: new FormControl(ingredient.getName()),
+              amount: new FormControl(ingredient.getAmount()),
+            })
+          )
+        );
+      }
     }
 
     this.recipeForm = new FormGroup({
       name: new FormControl(recipeName),
       imagePath: new FormControl(recipeImagePath),
       recipeDescription: new FormControl(recipeDescription),
+      ingredients: recipeIngredients,
     });
+  }
+
+  public onAddIngredient() {
+    (this.recipeForm.get('ingredients') as FormArray).push(
+      new FormGroup({
+        name: new FormControl(),
+        amount: new FormControl(),
+      })
+    );
+  }
+
+  public getArrayControl(): Array<AbstractControl> {
+    return (this.recipeForm.get('ingredients') as FormArray).controls;
   }
 }
