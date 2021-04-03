@@ -1,14 +1,11 @@
 export class Ingredient {
-  constructor(
-    private readonly name: String,
-    private readonly amoumt: Number
-  ) {}
+  constructor(private readonly name: string, private readonly amount: number) {}
 
-  getName(): String {
+  getName: () => string = () => {
     return this.name;
-  }
+  };
 
-  getAmount(): Number {
-    return this.amoumt;
-  }
+  getAmount: () => number = () => {
+    return this.amount;
+  };
 }

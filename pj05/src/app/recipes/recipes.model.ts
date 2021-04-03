@@ -8,23 +8,23 @@ export class RecipeModel {
     private readonly id: number
   ) {}
 
-  getName(): string {
+  getName: () => string = () => {
     return this.name;
-  }
+  };
 
-  getDescription(): string {
+  getDescription: () => string = () => {
     return this.description;
-  }
+  };
 
-  getImagePath(): string {
+  getImagePath: () => string = () => {
     return this.imagePath;
-  }
+  };
 
-  getIngredients(): Array<Ingredient> {
+  getIngredients: () => Array<Ingredient> = () => {
     return this.ingredients;
-  }
+  };
 
-  getId(): number {
+  getId: () => number = () => {
     return this.id;
-  }
+  };
 }

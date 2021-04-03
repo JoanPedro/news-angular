@@ -11,7 +11,14 @@
           >
             Save
           </button>
-          <button class="btn btn-danger" type="button">Cancel</button>
+          <a
+            role="button"
+            class="btn btn-danger"
+            type="button"
+            [routerLink]="['../']"
+          >
+            Cancel
+          </a>
         </div>
       </div>
       <div class="row">
@@ -54,7 +61,7 @@
               id="description"
               class="form-control"
               rows="6"
-              [formControlName]="'recipeDescription'"
+              [formControlName]="'description'"
             >
             </textarea>
           </div>

@@ -1,23 +1,24 @@
 import { RecipeService } from './../recipe.service';
 import { imageStyle } from './styles/image';
 import { RecipeModel } from './../recipes.model';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
-  styleUrls: ['./recipe-detail.component.css']
+  styleUrls: ['./recipe-detail.component.css'],
 })
 export class RecipeDetailComponent implements OnInit {
   recipe: RecipeModel;
+  id: number;
 
   imageStyle = imageStyle;
 
   constructor(
     private readonly recipeService: RecipeService,
     private readonly activatedRoute: ActivatedRoute
-    ) { }
+  ) {}
 
   ngOnInit(): void {
     // NOT DYNAMIC. THE ROUTE PATH CHANGE BUT THE COMPONENT, NOT. THIS DON'T CALL
@@ -26,15 +27,20 @@ export class RecipeDetailComponent implements OnInit {
     // const id: number = +this.activatedRoute.snapshot.params['id'];
     // this.recipe = this.recipeService.getRecipeById(id);
 
-    this.activatedRoute.params.subscribe(
-      (params: Params) => {
-        const id: number = +params['id'];
-        this.recipe = this.recipeService.getRecipeById(id);
-      }
-    );
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.id = +params['id'];
+      this.recipe = this.recipeService.getRecipeById(this.id);
+      console.log(this.recipe);
+    });
   }
 
   onAddToShoppingList() {
-    this.recipeService.addIngredientToShoppingList(this.recipe.getIngredients());
+    this.recipeService.addIngredientToShoppingList(
+      this.recipe.getIngredients()
+    );
+  }
+
+  onDeleteRecipe() {
+    this.recipeService.deleteRecipe(this.id);
   }
 }

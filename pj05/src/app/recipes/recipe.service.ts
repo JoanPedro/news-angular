@@ -54,4 +54,9 @@ export class RecipeService {
     this.recipes[index] = newRecipe;
     this.recipesAdded.next(this.getRecipe());
   }
+
+  public deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
+    this.recipesAdded.next(this.getRecipe());
+  }
 }
