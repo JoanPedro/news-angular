@@ -2,7 +2,7 @@ import { RecipeService } from './../recipe.service';
 import { imageStyle } from './styles/image';
 import { RecipeModel } from './../recipes.model';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -17,7 +17,8 @@ export class RecipeDetailComponent implements OnInit {
 
   constructor(
     private readonly recipeService: RecipeService,
-    private readonly activatedRoute: ActivatedRoute
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly router: Router
   ) {}
 
   ngOnInit(): void {
@@ -42,5 +43,6 @@ export class RecipeDetailComponent implements OnInit {
 
   onDeleteRecipe() {
     this.recipeService.deleteRecipe(this.id);
+    this.router.navigate(['../'], { relativeTo: this.activatedRoute });
   }
 }
