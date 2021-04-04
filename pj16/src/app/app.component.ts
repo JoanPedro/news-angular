@@ -9,6 +9,7 @@ import { map } from "rxjs/operators";
 })
 export class AppComponent implements OnInit {
   loadedPosts: Array<Post> = [];
+  isFetching = false;
 
   constructor(private httpClient: HttpClient) {}
 
@@ -37,6 +38,7 @@ export class AppComponent implements OnInit {
   }
 
   private fetchPosts() {
+    this.isFetching = true;
     this.httpClient
       .get<{ [key: string]: Post }>(
         "https://angular-bd89f-default-rtdb.firebaseio.com/posts.json"
@@ -53,6 +55,7 @@ export class AppComponent implements OnInit {
         })
       )
       .subscribe((posts) => {
+        this.isFetching = false;
         this.loadedPosts = posts;
       });
   }
