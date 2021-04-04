@@ -51,4 +51,10 @@ export class PostService {
   public getPostSubjects(): Subject<Array<Post>> {
     return this.postSubjects;
   }
+
+  public deletePosts(): Observable<any> {
+    return this.httpClient.delete<any>(
+      "https://angular-bd89f-default-rtdb.firebaseio.com/posts.json"
+    );
+  }
 }

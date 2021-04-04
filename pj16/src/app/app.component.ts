@@ -2,6 +2,7 @@ import { PostService } from "./posts.service";
 import { Post } from "./post.model";
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
+import { ThrowStmt } from "@angular/compiler";
 
 @Component({
   selector: "app-root",
@@ -12,13 +13,11 @@ export class AppComponent implements OnInit {
   loadedPosts: Array<Post> = [];
   isFetching = false;
 
-  constructor(private readonly postService: PostService) {
-    this.fetchPosts();
-  }
+  constructor(private readonly postService: PostService) {}
 
   ngOnInit() {
-    this.fetchPostsAsSubject();
-    // this.fetchPosts();
+    // this.fetchPostsAsSubject();
+    this.fetchPosts();
   }
 
   onCreatePost(postData: Post) {
@@ -26,12 +25,12 @@ export class AppComponent implements OnInit {
   }
 
   onFetchPosts() {
-    this.postService.fetchPostsAsSubject();
-    // this.fetchPosts();
+    // this.postService.fetchPostsAsSubject();
+    this.fetchPosts();
   }
 
   onClearPosts() {
-    // Send Http request
+    this.postService.deletePosts().subscribe(() => this.fetchPosts());
   }
 
   private fetchPosts() {
