@@ -1,0 +1,4 @@
+While plain Observables are unicast (each subscribed Observer owns an independent execution
+of the Observable), Subjects are multicast. A Subject is like an Observable, but can multicast
+to many Observers. Observable can inform only one observer, while Subject can inform multiple
+observers.

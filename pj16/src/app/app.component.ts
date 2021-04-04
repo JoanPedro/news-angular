@@ -12,22 +12,22 @@ export class AppComponent implements OnInit {
   loadedPosts: Array<Post> = [];
   isFetching = false;
 
-  constructor(
-    private readonly postService: PostService,
-    private httpClient: HttpClient
-  ) {}
-
-  ngOnInit() {
+  constructor(private readonly postService: PostService) {
     this.fetchPosts();
   }
 
+  ngOnInit() {
+    this.fetchPostsAsSubject();
+    // this.fetchPosts();
+  }
+
   onCreatePost(postData: Post) {
-    // Send Http request
     this.postService.createAndStorePost(postData);
   }
 
   onFetchPosts() {
-    this.fetchPosts();
+    this.postService.fetchPostsAsSubject();
+    // this.fetchPosts();
   }
 
   onClearPosts() {
@@ -40,5 +40,11 @@ export class AppComponent implements OnInit {
       this.isFetching = false;
       this.loadedPosts = posts;
     });
+  }
+
+  private fetchPostsAsSubject() {
+    this.postService
+      .getPostSubjects()
+      .subscribe((posts) => (this.loadedPosts = posts));
   }
 }

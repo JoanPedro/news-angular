@@ -1,4 +1,4 @@
-import { Observable } from "rxjs";
+import { Observable, Subject, Subscription } from "rxjs";
 import { map } from "rxjs/operators";
 import { Post } from "./post.model";
 import { HttpClient } from "@angular/common/http";
@@ -8,10 +8,11 @@ import { Injectable } from "@angular/core";
   providedIn: "root",
 })
 export class PostService {
+  private postSubjects: Subject<Array<Post>> = new Subject<Array<Post>>();
+
   constructor(private readonly httpClient: HttpClient) {}
 
-  createAndStorePost(newPost: Post) {
-    // Send Http request
+  public createAndStorePost(newPost: Post) {
     this.httpClient
       .post<{ name: string }>(
         "https://angular-bd89f-default-rtdb.firebaseio.com/posts.json",
@@ -22,7 +23,7 @@ export class PostService {
       });
   }
 
-  fetchPosts(): Observable<Post[]> {
+  public fetchPosts(): Observable<Post[]> {
     return this.httpClient
       .get<{ [key: string]: Post }>(
         "https://angular-bd89f-default-rtdb.firebaseio.com/posts.json"
@@ -38,5 +39,16 @@ export class PostService {
           return postArray;
         })
       );
+  }
+
+  public fetchPostsAsSubject() {
+    this.fetchPosts().subscribe((posts) => {
+      console.log(posts);
+      this.postSubjects.next(posts);
+    });
+  }
+
+  public getPostSubjects(): Subject<Array<Post>> {
+    return this.postSubjects;
   }
 }
