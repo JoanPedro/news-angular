@@ -1,4 +1,4 @@
-import { HttpClient, HttpResponse } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { map } from "rxjs/operators";
 
@@ -38,12 +38,12 @@ export class AppComponent implements OnInit {
 
   private fetchPosts() {
     this.httpClient
-      .get<Array<Post>>(
+      .get<{ [key: string]: Post }>(
         "https://angular-bd89f-default-rtdb.firebaseio.com/posts.json"
       )
       .pipe(
         map((responseData) => {
-          const postArray = [];
+          const postArray: Array<Post> = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
               postArray.push({ ...responseData[key], id: key });
