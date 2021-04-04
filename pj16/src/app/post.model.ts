@@ -3,3 +3,7 @@ export type Post = {
   title: string;
   id?: string;
 };
+
+export type PostCollection = {
+  posts: Array<Post>;
+};
