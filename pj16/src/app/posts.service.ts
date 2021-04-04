@@ -1,3 +1,4 @@
+import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { Post } from "./post.model";
 import { HttpClient } from "@angular/common/http";
@@ -21,8 +22,8 @@ export class PostService {
       });
   }
 
-  fetchPosts() {
-    this.httpClient
+  fetchPosts(): Observable<Post[]> {
+    return this.httpClient
       .get<{ [key: string]: Post }>(
         "https://angular-bd89f-default-rtdb.firebaseio.com/posts.json"
       )
@@ -36,7 +37,6 @@ export class PostService {
           }
           return postArray;
         })
-      )
-      .subscribe((posts) => {});
+      );
   }
 }
