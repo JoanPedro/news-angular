@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   onCreatePost(postData: { title: string; content: string }) {
     // Send Http request
     this.httpClient
-      .post(
+      .post<{ name: string }>(
         "https://angular-bd89f-default-rtdb.firebaseio.com/posts.json",
         postData
       )
@@ -52,8 +52,8 @@ export class AppComponent implements OnInit {
           return postArray;
         })
       )
-      .subscribe((responseData) => {
-        console.log(responseData);
+      .subscribe((posts) => {
+        this.loadedPosts = posts;
       });
   }
 }
