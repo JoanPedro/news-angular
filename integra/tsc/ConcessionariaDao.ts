@@ -1,7 +1,7 @@
 import { Concessionaria } from './app2';
 import { Dao } from './Dao';
 
-export class ConcessionariaDao implements Dao {
+export class ConcessionariaDao implements Dao<Concessionaria> {
 
     nomeTabela: string = 'tb_concessionaria';
 

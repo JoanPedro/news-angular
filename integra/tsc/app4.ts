@@ -1,3 +1,4 @@
+import { NewDao } from './newDao';
 import { Concessionaria } from './app2';
 import { ConcessionariaDao } from './ConcessionariaDao';
 
@@ -9,3 +10,5 @@ dao.atualizar(concessionaria);
 dao.remover(1);
 dao.selecionar(1);
 dao.selecionarTodos();
+
+const newDao: NewDao<Concessionaria> = new NewDao<Concessionaria>();
