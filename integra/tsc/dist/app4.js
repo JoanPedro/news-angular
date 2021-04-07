@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var app2_1 = require("./app2");
+var ConcessionariaDao_1 = require("./ConcessionariaDao");
+var dao = new ConcessionariaDao_1.ConcessionariaDao();
+var concessionaria = new app2_1.Concessionaria('AV Paulo VI');
+dao.inserir(concessionaria);
+dao.atualizar(concessionaria);
+dao.remover(1);
+dao.selecionar(1);
+dao.selecionarTodos();
