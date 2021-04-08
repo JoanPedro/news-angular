@@ -1,3 +1,5 @@
+import { CalculadoraService } from './calculadora/services/calculadora.service';
+import { CalculadoraModule } from './calculadora/calculadora.module';
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
@@ -7,6 +9,12 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [
+        CalculadoraModule,
+      ],
+      providers: [
+        CalculadoraService
+      ]
     }).compileComponents();
   });
 
