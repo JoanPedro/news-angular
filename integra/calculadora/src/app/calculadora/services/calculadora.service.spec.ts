@@ -14,22 +14,22 @@ describe('CalculadoraService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('Should sum two numbers', () => {
+  it('Should returns the sum between two numbers', () => {
     const result: number = service.calcular(1, 1, CalculadoraService.SOMA);
     expect(result).toEqual(2);
   })
 
-  it('Should subtract two numbers', () => {
+  it('Should returns the subtraction between two numbers', () => {
     const result: number = service.calcular(1, 1, CalculadoraService.SUBTRACAO);
     expect(result).toEqual(0);
   })
 
-  it('Should multiplicate two numbers', () => {
+  it('Should returns the multiplication between two numbers', () => {
     const result: number = service.calcular(2, 2, CalculadoraService.MULTIPLICACAO);
     expect(result).toEqual(4);
   })
 
-  it('Should divide two numbers', () => {
+  it('Should returns the division between two numbers', () => {
     const result: number = service.calcular(4, 2, CalculadoraService.DIVISAO);
     expect(result).toEqual(2);
   })
