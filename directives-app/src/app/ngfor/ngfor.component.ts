@@ -23,7 +23,7 @@ export class NgforComponent implements OnInit {
     console.log();
   }
 
-  printList(aList: MatSelectionList): number {
-    return aList.selectedOptions.selected.length;
+  printList(aList: MatSelectionList): Array<String> {
+    return aList._value;
   }
 }

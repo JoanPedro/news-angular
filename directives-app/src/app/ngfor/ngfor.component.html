@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-content>
     <mat-selection-list #aList>
-      <mat-list-option *ngFor="let name of names">{{name}}</mat-list-option>
+      <mat-list-option [value]="name" *ngFor="let name of names">{{name}}</mat-list-option>
     </mat-selection-list>
   </mat-card-content>
 
