@@ -1,16 +1,45 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
 import { AppComponent } from './app.component';
+import { NgstylesComponent } from './ngstyles/ngstyles.component';
+import { NgclassComponent } from './ngclass/ngclass.component';
+import { NgifComponent } from './ngif/ngif.component';
+import { SubNgIfComponent } from './ngif/sub-ng-if/sub-ng-if.component';
+import { NgforComponent } from './ngfor/ngfor.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NgstylesComponent,
+    NgclassComponent,
+    NgifComponent,
+    SubNgIfComponent,
+    NgforComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatListModule
   ],
   providers: [],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
