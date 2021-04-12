@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSelectionList } from '@angular/material/list';
 
 @Component({
   selector: 'app-ngfor',
@@ -19,6 +20,10 @@ export class NgforComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log();
   }
 
+  printList(aList: MatSelectionList): number {
+    return aList.selectedOptions.selected.length;
+  }
 }

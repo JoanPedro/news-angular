@@ -1,9 +1,13 @@
 <mat-card>
   <mat-card-content>
-    <mat-selection-list>
+    <mat-selection-list #aList>
       <mat-list-option *ngFor="let name of names">{{name}}</mat-list-option>
     </mat-selection-list>
   </mat-card-content>
 
   <!-- <p *ngFor="let name of names; let i = index"> Nome: {{name}}; index: {{i}}</p> -->
+
+  <mat-card-footer>
+    <p> Selected: {{ printList(aList) }}</p>
+  </mat-card-footer>
 </mat-card>
