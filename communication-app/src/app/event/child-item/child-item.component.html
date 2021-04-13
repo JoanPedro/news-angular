@@ -1,15 +1,15 @@
 <h5>{{ title }}</h5>
 <div class="horizontal-button">
-  <button mat-raised-button color="primary" (click)="plusOneClick()">
+  <button mat-raised-button color="primary" (click)="operate(1)">
     <mat-icon>exposure_plus_1</mat-icon>
   </button>
-  <button mat-raised-button color="primary" (click)="plusTwoClick()">
+  <button mat-raised-button color="primary" (click)="operate(2)">
     <mat-icon>exposure_plus_2</mat-icon>
   </button>
-  <button mat-raised-button color="accent" (click)="minusOneClick()">
+  <button mat-raised-button color="accent" (click)="operate(-1)">
     <mat-icon>exposure_neg_1</mat-icon>
   </button>
-  <button mat-raised-button color="accent" (click)="minusTwoClick()">
+  <button mat-raised-button color="accent" (click)="operate(-2)">
     <mat-icon>exposure_neg_2</mat-icon>
   </button>
 </div>

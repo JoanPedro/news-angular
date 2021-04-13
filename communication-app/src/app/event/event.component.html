@@ -4,10 +4,7 @@
       <h3>Value: {{ value }}</h3>
       <app-child-item
         [title]="title"
-        (plusOne)="operateNum($event)"
-        (plusTwo)="operateNum($event)"
-        (minusOne)="operateNum($event)"
-        (minusTwo)="operateNum($event)"
+        (doCount)="operateNum($event)"
       ></app-child-item>
     </section>
   </mat-card-content>
