@@ -38,13 +38,16 @@
       <mat-list>
         <h3 matHeader>Client List</h3>
         <mat-divider></mat-divider>
-        <mat-list-item *ngFor="let client of clients">
+        <mat-list-item *ngFor="let client of clients; let i = index">
           <mat-icon matListIcon>person</mat-icon>
           <h2 mat-line>Name: {{ client.name }}</h2>
           <h4 mat-line>Phone: {{ client.phone }}</h4>
           <h4 mat-line>Address: {{ client.address }}</h4>
           <h4 mat-line>City: {{ client.city }}</h4>
           <h6 mat-line>Age: {{ client.age }}</h6>
+          <button mat-icon-button color="accent" (click)="handleRemove(i)">
+            <mat-icon>delete</mat-icon>
+          </button>
         </mat-list-item>
       </mat-list>
     </section>
