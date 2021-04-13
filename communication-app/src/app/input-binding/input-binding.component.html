@@ -1,1 +1,7 @@
-<p>input-binding works!</p>
+<p>First Name: {{ name }} - Last Name: {{ lastName }} - Age: {{ age }}</p>
+
+<h1>Clients</h1>
+<div *ngFor="let client of clients">
+  <app-client [client]="client"></app-client>
+  <hr>
+</div>
