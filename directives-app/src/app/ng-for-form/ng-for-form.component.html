@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-content>
     <section>
-      <h1>Client Form</h1>
+      <h1 matHeader>Client Form</h1>
       <mat-form-field class="form-field">
         <input type="text" matInput placeholder="First name" name="name" [(ngModel)]="name"/>
         <mat-icon matSuffix>person</mat-icon>
@@ -29,5 +29,27 @@
   <mat-card-actions>
     <button mat-raised-button color="primary" (click)="handleSave()">Save</button>
     <button mat-raised-button color="warn" (click)="handleCancel()">Cancel</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card>
+  <mat-card-content>
+    <section>
+      <mat-list>
+        <h3 matHeader>Client List</h3>
+        <mat-divider></mat-divider>
+        <mat-list-item *ngFor="let client of clients">
+          <mat-icon matListIcon>person</mat-icon>
+          <h2 mat-line>Name: {{ client.name }}</h2>
+          <h4 mat-line>Phone: {{ client.phone }}</h4>
+          <h4 mat-line>Address: {{ client.address }}</h4>
+          <h4 mat-line>City: {{ client.city }}</h4>
+          <h6 mat-line>Age: {{ client.age }}</h6>
+        </mat-list-item>
+      </mat-list>
+    </section>
+  </mat-card-content>
+  <mat-card-actions>
+
   </mat-card-actions>
 </mat-card>

@@ -34,7 +34,8 @@ export class NgForFormComponent implements OnInit {
       phone: this.phone,
       city: this.city,
       age: this.age
-    })
+    });
+    this.handleCancel();
     console.log(this.clients)
   }
 
