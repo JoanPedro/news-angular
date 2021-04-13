@@ -11,12 +11,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
 import { AppComponent } from './app.component';
 import { NgstylesComponent } from './ngstyles/ngstyles.component';
 import { NgclassComponent } from './ngclass/ngclass.component';
 import { NgifComponent } from './ngif/ngif.component';
 import { SubNgIfComponent } from './ngif/sub-ng-if/sub-ng-if.component';
 import { NgforComponent } from './ngfor/ngfor.component';
+import { NgForFormComponent } from './ng-for-form/ng-for-form.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { NgforComponent } from './ngfor/ngfor.component';
     NgclassComponent,
     NgifComponent,
     SubNgIfComponent,
-    NgforComponent
+    NgforComponent,
+    NgForFormComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { NgforComponent } from './ngfor/ngfor.component';
     MatInputModule,
     MatListModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    MatButtonModule
   ],
   providers: [],
   schemas: [

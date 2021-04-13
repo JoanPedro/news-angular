@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-content>
+    <section>
+      <h1>Client Form</h1>
+      <mat-form-field class="form-field">
+        <input type="text" matInput placeholder="First name" name="name" [(ngModel)]="name"/>
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <input type="text" matInput placeholder="Address" name="address" [(ngModel)]="address"/>
+        <mat-icon matSuffix>home</mat-icon>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <input type="text" matInput placeholder="Phone" name="phone" [(ngModel)]="phone"/>
+        <mat-icon matSuffix>phone</mat-icon>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-select placeholder="Cities" [(ngModel)]="city">
+          <mat-option *ngFor="let aCity of cities" [value]="aCity.name">{{ aCity.name }} - {{ aCity.state }}</mat-option>
+        </mat-select>
+        <mat-icon matSuffix>location_city</mat-icon>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <input type="number" matInput placeholder="Age" name="age" [(ngModel)]="age"/>
+        <mat-icon matSuffix>filter_center_focus</mat-icon>
+      </mat-form-field>
+    </section>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="handleSave()">Save</button>
+    <button mat-raised-button color="warn" (click)="handleCancel()">Cancel</button>
+  </mat-card-actions>
+</mat-card>
