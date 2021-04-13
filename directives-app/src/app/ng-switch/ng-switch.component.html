@@ -9,7 +9,7 @@
     </section>
     <br>
     <section [ngSwitch]="fieldName">
-      <button *[ngSwitchCase]="'button'" mat-raised-button color="warn">Button</button>
+      <button *ngSwitchCase="'button'" mat-raised-button color="warn">Button</button>
       <mat-checkbox *ngSwitchCase="'checkbox'">Checkbox</mat-checkbox>
       <mat-progress-bar color="warn" mode="indeterminate" *ngSwitchCase="'progressbar'"></mat-progress-bar>
     </section>
