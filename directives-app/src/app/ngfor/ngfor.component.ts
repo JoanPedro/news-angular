@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatSelectionList } from '@angular/material/list';
 
 @Component({
@@ -7,7 +7,7 @@ import { MatSelectionList } from '@angular/material/list';
   styleUrls: ['./ngfor.component.css']
 })
 export class NgforComponent implements OnInit {
-  names = [
+  names: Array<string> = [
     "Joan",
     "Pedro",
     "Oliveira",
@@ -17,13 +17,23 @@ export class NgforComponent implements OnInit {
     "Capgemini"
   ];
 
+  cities: Array<City> = [
+    { name: "Recife", state: "PE" },
+    { name: "São Paulo", state: "SP" },
+    { name: "Curitiba", state: "PR" },
+    { name: "Rio de Janeiro", state: "RJ" },
+   ]
+
   constructor() { }
 
-  ngOnInit(): void {
-    console.log();
-  }
+  ngOnInit(): void { }
 
   printList(aList: MatSelectionList): Array<String> {
     return aList._value;
   }
+}
+
+type City = {
+  name: string,
+  state: string
 }

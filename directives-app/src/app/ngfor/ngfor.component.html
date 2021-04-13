@@ -1,8 +1,36 @@
 <mat-card>
+  <p>SELECT - NGFOR</p>
   <mat-card-content>
     <mat-selection-list #aList>
-      <mat-list-option [value]="name" *ngFor="let name of names">{{name}}</mat-list-option>
+      <mat-list-option [value]="name" *ngFor="let name of names">{{ name }}</mat-list-option>
     </mat-selection-list>
+  </mat-card-content>
+
+  <!-- <p *ngFor="let name of names; let i = index"> Nome: {{name}}; index: {{i}}</p> -->
+
+  <mat-card-footer>
+    <p> Selected: {{ printList(aList) }}</p>
+  </mat-card-footer>
+</mat-card>
+
+<mat-card>
+  <mat-card-content>
+    <h3 matSubheader>NGFOR - Names</h3>
+    <mat-list>
+      <mat-list-item *ngFor="let name of names">
+        <mat-icon mat-list-icon >person</mat-icon>
+        <h4 mat-line>{{ name }}</h4>
+      </mat-list-item>
+
+      <mat-divider></mat-divider>
+
+      <h3 matSubheader>NGFOR - Cityes</h3>
+      <mat-list-item *ngFor="let city of cities">
+        <mat-icon mat-list-icon >location_city</mat-icon>
+        <h4 mat-line>City name: {{ city.name }}</h4>
+        <h4 mat-line>State: {{ city.state }}</h4>
+      </mat-list-item>
+    </mat-list>
   </mat-card-content>
 
   <!-- <p *ngFor="let name of names; let i = index"> Nome: {{name}}; index: {{i}}</p> -->
