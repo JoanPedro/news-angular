@@ -5,5 +5,19 @@
         <li *ngIf="user.role === 'admin'">{{ user.login }}</li>
       </ng-container>
     </ul>
+
+    <mat-list>
+      <h3 mat-subheader>Users</h3>
+      <ng-container *ngFor="let user of users">
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <h4 mat-line>{{ user.login }}</h4>
+          <h5 mat-line>{{ user.role }}</h5>
+          <h6 mat-line>{{ user.lastLoginIn | date: "dd/MM/YYYY" }}</h6>
+          <button mat-stroked-button color="primary">Save</button>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </ng-container>
+    </mat-list>
   </mat-card-content>
 </mat-card>
