@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventComponent implements OnInit {
 
+  title: string = "Operations Button"
+  value: number = 0;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  operateNum(event: number) {
+    this.value += event;
+  }
 }
