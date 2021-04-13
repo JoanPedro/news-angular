@@ -12,6 +12,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AppComponent } from './app.component';
 import { NgstylesComponent } from './ngstyles/ngstyles.component';
 import { NgclassComponent } from './ngclass/ngclass.component';
@@ -19,6 +20,7 @@ import { NgifComponent } from './ngif/ngif.component';
 import { SubNgIfComponent } from './ngif/sub-ng-if/sub-ng-if.component';
 import { NgforComponent } from './ngfor/ngfor.component';
 import { NgForFormComponent } from './ng-for-form/ng-for-form.component';
+import { NgSwitchComponent } from './ng-switch/ng-switch.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { NgForFormComponent } from './ng-for-form/ng-for-form.component';
     NgifComponent,
     SubNgIfComponent,
     NgforComponent,
-    NgForFormComponent
+    NgForFormComponent,
+    NgSwitchComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { NgForFormComponent } from './ng-for-form/ng-for-form.component';
     MatListModule,
     MatIconModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressBarModule
   ],
   providers: [],
   schemas: [
