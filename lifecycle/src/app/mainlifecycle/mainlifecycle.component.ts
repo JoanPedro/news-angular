@@ -1,3 +1,4 @@
+import { Client } from './../client';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,9 +13,20 @@ export class MainlifecycleComponent implements OnInit {
   name: string = "";
   food: string = "";
 
+  editClient: Client;
+
+  clients: Array<Client> = new Array<Client>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  save() {
+    this.clients.push({
+      name: this.name,
+      age: this.age,
+      food: this.food
+    })
+  }
 }

@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MainlifecycleComponent } from './mainlifecycle/mainlifecycle.component';
+import { LifecycleChildComponent } from './mainlifecycle/lifecycle-child/lifecycle-child.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainlifecycleComponent
+    MainlifecycleComponent,
+    LifecycleChildComponent
   ],
   imports: [
     BrowserModule,
