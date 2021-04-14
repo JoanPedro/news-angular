@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { TimerComponent } from './timer/timer.component';
 
 @Component({
@@ -6,10 +6,13 @@ import { TimerComponent } from './timer/timer.component';
   templateUrl: './parent-child.component.html',
   styleUrls: ['./parent-child.component.css']
 })
-export class ParentChildComponent implements OnInit {
+export class ParentChildComponent implements OnInit, AfterViewInit {
 
   @ViewChild('otherStopWatch')
   myTimer: TimerComponent;
+
+  @ViewChild('myP')
+  myParagraph: ElementRef;
 
   constructor() { }
 
@@ -26,5 +29,10 @@ export class ParentChildComponent implements OnInit {
 
   clear() {
     this.myTimer.clear();
+  }
+
+  ngAfterViewInit() {
+    const pContent: string = (this.myParagraph.nativeElement as HTMLParagraphElement).textContent;
+    console.log(pContent);
   }
 }
