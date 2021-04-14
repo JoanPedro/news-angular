@@ -1,6 +1,15 @@
 <div>
+  <h3 subHeader>With TemplateRef on Child</h3>
   <button mat-button color="primary" (click)="stopWatch.start()">Start</button>
   <button mat-button color="primary" (click)="stopWatch.stop()">Stop</button>
   <button mat-button color="primary" (click)="stopWatch.clear()">Clear</button>
 </div>
 <app-timer #stopWatch></app-timer>
+
+<div>
+  <h3 subHeader>With TemplateRef on Parent</h3>
+  <button mat-button color="primary" (click)="start()">Start</button>
+  <button mat-button color="primary" (click)="stop()">Stop</button>
+  <button mat-button color="primary" (click)="clear()">Clear</button>
+</div>
+<app-timer #otherStopWatch></app-timer>
