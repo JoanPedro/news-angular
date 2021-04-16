@@ -54,5 +54,4 @@ export class ColdObservablesComponent implements OnInit {
       this.subscriptionTwo.unsubscribe();
     }, 11000);
   }
-
 }
