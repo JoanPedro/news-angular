@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Department } from './models/department.model';
 
 @Injectable({
@@ -14,16 +15,21 @@ export class DepartmentService {
   ];
 
   private nextID:number = 5;
-
-  constructor() { }
+  departmentEmitter: Subject<Array<Department>>;
+  constructor() {
+    this.departmentEmitter = new Subject<Array<Department>>();
+  }
 
   getDepartments(): Department[] {
-    return this.departments;
+    return this.departments.slice();
   }
 
   addDepartment(d: Department) {
     this.departments.push({...d, id: this.nextID++});
-    console.log(this.departments);
+    this.departmentEmitter.next(this.departments.slice());
   }
 
+  getDepartmentById(id: number) {
+    return this.departments.find(i => { return i.id === id });
+  }
 }

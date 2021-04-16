@@ -1,4 +1,6 @@
-import { NgModule } from '@angular/core';
+import { DepartmentService } from './department.service';
+import { ProductService } from './product.service';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +28,11 @@ import { ProductsTableComponent } from './products-table/products-table.componen
     MaterialModule,
     FlexLayoutModule
   ],
-  providers: [],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

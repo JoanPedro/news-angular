@@ -11,7 +11,8 @@ export class DepartmentFormComponent implements OnInit {
   depName: string = "";
 
   constructor(
-    private departmentServive: DepartmentService) { }
+    private departmentServive: DepartmentService
+  ) { }
 
   ngOnInit(): void {
   }
