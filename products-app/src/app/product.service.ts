@@ -29,7 +29,6 @@ export class ProductService {
         department: this.departmentService.getDepartmentById(p.department_id)
       });
     }
-    this.productsEmitter.next(this.products.slice());
   }
 
   getProducts(): Product[] {
