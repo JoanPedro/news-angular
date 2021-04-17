@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ColdObservablesComponent } from './cold-observables/cold-observables.component';
 import { HotObservablesComponent } from './hot-observables/hot-observables.component';
+import { HotObservablesIntermediateComponent } from './hot-observables-intermediate/hot-observables-intermediate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BasicComponent,
     ColdObservablesComponent,
-    HotObservablesComponent
+    HotObservablesComponent,
+    HotObservablesIntermediateComponent
   ],
   imports: [
     BrowserModule,
