@@ -29,21 +29,21 @@ export class BasicCreationComponent implements OnInit {
       }
     );
 
-    hello.subscribe(console.log);
+    hello.subscribe(console.log).unsubscribe();
   }
 
   fromClick() {
     const source: Observable<any> = from([1, 2, 3, 4, 5, { x: 10, y: 20 }]);
     source.subscribe({
       next: console.log
-    });
+    }).unsubscribe();
   }
 
   ofClick() {
     const source: Observable<any> = of([1, 2, 3, 4, 5, { x: 10, y: 20 }]);
     source.subscribe({
       next: console.log
-    });
+    }).unsubscribe();
   }
 
   intervalClick() {
@@ -57,7 +57,7 @@ export class BasicCreationComponent implements OnInit {
     const source = timer(3000, 1000);
     source.subscribe({
       next: console.log
-    })
+    });
   }
 
   onUnsubscribe() {
