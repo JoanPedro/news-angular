@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,7 +17,8 @@ import { BasicCreationComponent } from './basic-creation/basic-creation.componen
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
