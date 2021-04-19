@@ -24,11 +24,11 @@ export class SubjectChildComponent implements OnInit {
   onConnect() {
     this.log.push("Connected");
     this.connected = true;
-    this._subscription$ = this.subject$.subscribe(
-      this.logData,
-      err => this.connected = false,
-      () => { this.connected = false; this.log.push("Finished!"); }
-    );
+    this._subscription$ = this.subject$.subscribe({
+      next: this.logData,
+      error: err => this.connected = false,
+      complete: () => { this.connected = false; this.log.push("Finished!"); }
+    });
   }
 
   onDisconnect() {
