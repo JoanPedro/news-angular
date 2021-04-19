@@ -4,6 +4,9 @@
       <mat-radio-button value="basic creation">
         <p>Basic Creation</p>
       </mat-radio-button>
+      <mat-radio-button value="operators">
+        <p>Operators</p>
+      </mat-radio-button>
     </mat-radio-group>
   </div>
   <div fxFlex="70" fxLayout="column" fxLayoutAlign="center start">
@@ -12,6 +15,9 @@
         *ngSwitchCase="'basic creation'"
         fxFill
       ></app-basic-creation>
+      <app-operators
+      *ngSwitchCase="'operators'"
+      fxFill></app-operators>
     </ng-container>
   </div>
 </div>
