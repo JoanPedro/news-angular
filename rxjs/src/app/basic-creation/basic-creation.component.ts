@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
   Observable,
   Observer,
   from,
   of,
   interval,
-  timer
+  timer,
+  fromEvent
 } from 'rxjs';
 
 @Component({
@@ -14,6 +15,9 @@ import {
   styleUrls: ['./basic-creation.component.css']
 })
 export class BasicCreationComponent implements OnInit {
+
+  @ViewChild('button')
+  button: ElementRef<HTMLButtonElement>;
 
   constructor() { }
 
@@ -62,5 +66,13 @@ export class BasicCreationComponent implements OnInit {
 
   onUnsubscribe() {
 
+  }
+
+  onClick() {
+    const fromEventButton: HTMLElement = document.getElementById('the-button');
+    const source = fromEvent(fromEventButton, 'click');
+    source.subscribe({
+      next: console.log
+    })
   }
 }
