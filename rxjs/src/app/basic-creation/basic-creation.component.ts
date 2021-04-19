@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Observer, from, of } from 'rxjs';
+import {
+  Observable,
+  Observer,
+  from,
+  of,
+  interval,
+  timer
+} from 'rxjs';
 
 @Component({
   selector: 'app-basic-creation',
@@ -37,5 +44,23 @@ export class BasicCreationComponent implements OnInit {
     source.subscribe({
       next: console.log
     });
+  }
+
+  intervalClick() {
+    const source = interval(1000);
+    source.subscribe({
+      next: console.log
+    });
+  }
+
+  timerClick() {
+    const source = timer(3000, 1000);
+    source.subscribe({
+      next: console.log
+    })
+  }
+
+  onUnsubscribe() {
+
   }
 }
