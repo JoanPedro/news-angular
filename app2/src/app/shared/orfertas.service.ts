@@ -11,4 +11,12 @@ export class OfertasService {
   public getOfertas(): Array<Oferta> {
     return this._ofertas.slice();
   }
+
+  public awaitOfertas(): Promise<Array<Oferta>> {
+    return new Promise((resolve, reject) => {
+      if (this.getOfertas().length)
+        resolve(this.getOfertas());
+      reject(new Error("Does not have offers!"));
+    });
+  }
 }
