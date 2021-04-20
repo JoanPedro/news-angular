@@ -1,3 +1,4 @@
+import { ProductEditComponent } from './products/product-edit/product-edit.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { HomeComponent } from './home/home.component';
@@ -7,7 +8,8 @@ import { ProductDetailGuard } from './products/shared/product.guard';
 
 const productRouterChildren: Routes = [
   { path: '', component: ProductListComponent },
-  { path: ':id', component: ProductDetailComponent, canActivate: [ProductDetailGuard] }
+  { path: ':id', component: ProductDetailComponent, canActivate: [ProductDetailGuard], pathMatch: 'full' },
+  { path: ':id/edit', component: ProductEditComponent, canActivate: [ProductDetailGuard], pathMatch: 'full' }
 ];
 
 const routes: Routes = [
