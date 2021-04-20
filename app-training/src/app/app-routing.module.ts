@@ -3,10 +3,11 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProductDetailGuard } from './products/shared/product.guard';
 
 const productRouterChildren: Routes = [
   { path: '', component: ProductListComponent },
-  { path: ':id', component: ProductDetailComponent }
+  { path: ':id', component: ProductDetailComponent, canActivate: [ProductDetailGuard] }
 ];
 
 const routes: Routes = [
