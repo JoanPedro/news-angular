@@ -15,11 +15,12 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.awaitForOffers();
+    this.awaitForOffers()
+      .catch(console.log);
   }
 
   async awaitForOffers() {
-    this.ofertas = await this.ofertasService.awaitOfertas();
+    this.ofertas = await this.ofertasService.getOfertas();
     console.log(this.ofertas);
   }
 }

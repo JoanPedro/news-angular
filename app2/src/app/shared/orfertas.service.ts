@@ -1,22 +1,21 @@
-import { OfertasAPI } from '../../api/ofertas';
 import { Oferta } from './oferta.model';
 import { Injectable } from "@angular/core";
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OfertasService {
-  private _ofertas: Array<Oferta> = OfertasAPI.slice();
 
-  public getOfertas(): Array<Oferta> {
-    return this._ofertas.slice();
-  }
+  private _url = "http://localhost:3000/ofertas";
 
-  public awaitOfertas(): Promise<Array<Oferta>> {
-    return new Promise((resolve, reject) => {
-      if (this.getOfertas().length)
-        resolve(this.getOfertas());
-      reject(new Error("Does not have offers!"));
-    });
+  constructor (
+    private httpClient: HttpClient
+  ) { }
+
+  public getOfertas(): Promise<Array<Oferta>> {
+    return this.httpClient
+      .get<Array<Oferta>>(this._url)
+      .toPromise();
   }
 }
