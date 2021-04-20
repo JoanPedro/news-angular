@@ -1,1 +1,10 @@
-<app-home></app-home>
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <a class="navbar-brand">{{ pageTitle }}</a>
+  <ul class="nav nav-pills">
+    <li><a class="nav-link" [routerLink]="['/welcome']" [routerLinkActive]="'active'">Home</a></li>
+    <li><a class="nav-link" [routerLink]="['/products']" [routerLinkActive]="'active'">Product List</a></li>
+  </ul>
+</nav>
+<section class="container" role="document">
+  <router-outlet></router-outlet>
+</section>

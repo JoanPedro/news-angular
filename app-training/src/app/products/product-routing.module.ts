@@ -8,6 +8,9 @@ const productRouterChildren: Routes = [
   { path: ':id', component: ProductDetailComponent }
 ];
 
+// /products [parent] / products [children]
+// results an valid path .../products/products
+
 const routes: Routes = [
   { path: 'products', children: productRouterChildren },
 ];
