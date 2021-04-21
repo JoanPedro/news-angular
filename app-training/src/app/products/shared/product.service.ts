@@ -1,13 +1,12 @@
+import { Product } from './../../shared/models/product.model';
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Product } from '../../shared/models/product.model';
-
 @Injectable()
 export class ProductService {
-  private productUrl = 'api/products/products.json';
+  private productUrl = 'http://localhost:3000/products';
 
   constructor(
     private readonly httpClient: HttpClient
@@ -29,6 +28,11 @@ export class ProductService {
       );
   }
 
+  editProduct(product: Product, id: number): Observable<any> {
+    return this.httpClient
+      .put(`${this.productUrl}/${id}`, product);
+  }
+
   private handleError(err: HttpErrorResponse): Observable<never> {
     // Send the server to some logging infrastructure.
     let errorMessage = '';
@@ -38,7 +42,7 @@ export class ProductService {
     } else {
       // The backend returned an unccessful response code
       // The response body may contain clues as to what went wrong.
-      errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`
+      // errorMessage = `Server returned status: ${err.status}, error message is: ${err.message}`
     }
     console.log(errorMessage);
     return throwError(errorMessage);
