@@ -1,1 +1,98 @@
-<p>product-edit works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit()" #formObject="ngForm">
+        <div id="user-data" ngModelGroup="productData" #productData="ngModelGroup">
+          <div class="form-group">
+            <label for="productName">Product Name</label>
+            <input
+              type="text"
+              id="productName"
+              class="form-control"
+              ngModel
+              name="productName"
+              required
+            >
+          </div>
+          <button
+            class="btn btn-success"
+            type="button"
+            (click)="suggestUserName()"
+          >Suggest an Username</button>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              type="text"
+              id="description"
+              rows="3"
+              class="form-control"
+              ngModel
+              name="description"
+              required
+            ></textarea>
+          </div>
+        </div>
+        <p *ngIf="!productData.valid && productData.touched">User Data is invalid</p>
+        <div class="row">
+          <div class="col-4">
+            <div class="form-group">
+              <label for="productCode">Product Code</label>
+              <input
+                type="text"
+                id="productCode"
+                class="form-control"
+                ngModel
+                name="productCode"
+                required
+              >
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="form-group">
+              <label for="releaseData">Release Data</label>
+              <input
+                type="text"
+                id="releaseData"
+                class="form-control"
+                ngModel
+                name="releaseData"
+                required
+              >
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input
+                type="number"
+                pattern="^[1-9]\d*$"
+                id="price"
+                class="form-control"
+                ngModel
+                name="price"
+                required
+              >
+            </div>
+          </div>
+        </div>
+        <button
+          class="btn"
+          [ngClass]="!formObject.valid ? 'btn-danger' : 'btn-primary'"
+          type="submit"
+          [disabled]="!formObject.valid"
+        >Submit</button>
+      </form>
+      <hr>
+    </div>
+  </div>
+  <div *ngIf="submitted" class="row">
+    <div class="col-xs-12">
+      <h3>Your data</h3>
+      <p>Product Name: {{ generatedUserByForm.productData.productName }}</p>
+      <p>Product Description: {{ generatedUserByForm.productData.description }}</p>
+      <p>Product Code: {{ generatedUserByForm.productCode}}</p>
+      <p>Release Data: {{ generatedUserByForm.releaseData}}</p>
+      <p>Price: {{ generatedUserByForm.price }}</p>
+    </div>
+  </div>
+</div>

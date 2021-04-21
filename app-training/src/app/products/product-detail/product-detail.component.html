@@ -49,7 +49,7 @@
         <i class="fa fa-chevron-left"></i> Back
       </button> -->
       <ng-container *ngTemplateOutlet="backButton"></ng-container>
-      <a class="btn btn-outline-success ml-2" style="width: 80px;" role="button" [routerLink]="['/products', ]">
+      <a class="btn btn-outline-success ml-2" style="width: 80px;" role="button" [routerLink]="['/products', product.productId, 'edit']">
         <i class="fa fa-chevron-right"></i> Edit
       </a>
     </div>
