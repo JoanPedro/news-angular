@@ -79,12 +79,11 @@ export class ProductEditComponent implements OnInit, OnDestroy {
     }
 
     this.generatedUserByForm = this.signupForm.value;
+    this.signupForm.reset();
 
     this.productService.editProduct(productToSubmit, this._id).subscribe({
-      next: console.log
+      next: () => this.router.navigate(['/products'])
     });
-
-    this.signupForm.reset();
   }
 }
 
