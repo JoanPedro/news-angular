@@ -1,7 +1,7 @@
 import { Oferta } from './../shared/oferta.model';
 import { OfertasService } from './../shared/orfertas.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'xyz-oferta',
@@ -19,8 +19,11 @@ export class OfertaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.getOferta(id);
+    this.activatedRoute.paramMap.subscribe(
+      (param: ParamMap) => {
+        this.getOferta(Number(param.get('id')))
+      }
+    );
   }
 
   getOferta(id: number) {

@@ -1,3 +1,5 @@
+import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component';
+import { ComoUsarComponent } from './oferta/como-usar/como-usar.component';
 import { IdCanActivateGuard } from './shared/id-guard.guard';
 import { OfertaComponent } from './oferta/oferta.component';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
@@ -10,11 +12,19 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'restaurantes', children: [
     { path: '',  component: RestaurantesComponent },
-    { path: ':id', component: OfertaComponent, canActivate: [IdCanActivateGuard] }
+    { path: ':id', component: OfertaComponent, canActivate: [IdCanActivateGuard], children: [
+      { path: '', component: ComoUsarComponent },
+      { path: 'como-usar', component: ComoUsarComponent },
+      { path: 'onde-fica', component: OndeFicaComponent }
+    ]}
   ]},
   { path: 'diversao', children: [
     { path: '',  component: DiversaoComponent },
-    { path: ':id', component: OfertaComponent, canActivate: [IdCanActivateGuard] }
+    { path: ':id', component: OfertaComponent, canActivate: [IdCanActivateGuard], children: [
+      { path: '', component: ComoUsarComponent },
+      { path: 'como-usar', component: ComoUsarComponent },
+      { path: 'onde-fica', component: OndeFicaComponent }
+    ]}
   ]}
 ];
 

@@ -3,7 +3,7 @@
 
     <div class="row">
       <div class="col">
-        <h4>{{ oferta.titulo  }}</h4>
+        <h4>{{ oferta.titulo }}</h4>
       </div>
     </div>
 
@@ -14,9 +14,7 @@
         </div>
 
         <div class="thumbnails">
-          <img [src]="oferta.imagens[1].url" />
-          <img [src]="oferta.imagens[2].url" />
-          <img [src]="oferta.imagens[3].url" />
+          <img *ngFor="let img of oferta.imagens" [src]="img.url" />
         </div>
       </div>
 
@@ -41,8 +39,22 @@
         </div>
 
       </div>
-
     </div>
 
+    <div class="row" style="margin-top: 25px; margin-bottom: 150px">
+      <div class=col>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" [routerLink]="['como-usar']" role="tab" aria-expanded="true">Como usar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" [routerLink]="['onde-fica']" role="tab">Onde fica?</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
   </ng-container>
 </div>
