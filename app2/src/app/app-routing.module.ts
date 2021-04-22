@@ -1,3 +1,4 @@
+import { IdCanActivateGuard } from './shared/id-guard.guard';
 import { OfertaComponent } from './oferta/oferta.component';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { DiversaoComponent } from './diversao/diversao.component';
@@ -9,11 +10,11 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'restaurantes', children: [
     { path: '',  component: RestaurantesComponent },
-    { path: ':id', component: OfertaComponent }
+    { path: ':id', component: OfertaComponent, canActivate: [IdCanActivateGuard] }
   ]},
   { path: 'diversao', children: [
     { path: '',  component: DiversaoComponent },
-    { path: ':id', component: OfertaComponent }
+    { path: ':id', component: OfertaComponent, canActivate: [IdCanActivateGuard] }
   ]}
 ];
 
