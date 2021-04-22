@@ -6,8 +6,8 @@
   </div>
 
   <hr />
-
-    <ng-container class="row" *ngFor="let oferta of ofertas">
+  <ng-container *ngIf="wasDataLoaded | async">
+    <div class="row" *ngFor="let oferta of ofertas">
       <div class="col-md-4">
         <img [src]="oferta.imagens[0].url" />
       </div>
@@ -30,10 +30,11 @@
         </div>
 
         <div class="row">
-          <button class="btn btn-outline-success">Ver oferta</button>
+          <a class="btn btn-outline-success" [routerLink]="['/restaurantes', oferta.id]">Ver oferta</a>
         </div>
       </div>
-      <hr />
-    </ng-container>
+      <hr style="margin: 16px;"/>
+    </div>
     <br />
+  </ng-container>
 </div>

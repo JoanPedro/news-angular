@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class DiversaoComponent implements OnInit {
 
   public ofertas: Array<Oferta>;
+  public wasDataLoaded: Promise<boolean>;
 
   constructor(
     private readonly ofertasService: OfertasService
@@ -19,9 +20,12 @@ export class DiversaoComponent implements OnInit {
     this.getOfertas();
   }
 
-  async getOfertas(): Promise<void> {
-    this.ofertas = await this.ofertasService.getOfertasPorCategoria('restaurante');
-    console.log(this.ofertas)
+  getOfertas() {
+    this.ofertasService.getOfertasPorCategoria('restaurante').subscribe({
+      next: ofertas => {
+        this.ofertas = ofertas;
+        this.wasDataLoaded = Promise.resolve(true);
+      }
+    });
   }
-
 }

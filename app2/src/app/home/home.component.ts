@@ -9,18 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   ofertas: Array<Oferta>
+  public wasDataLoaded: Promise<boolean>;
 
   constructor(
     private readonly ofertasService: OfertasService
   ) {}
 
   ngOnInit(): void {
-    this.awaitForOffers()
-      .catch(console.log);
+    this.awaitForOffers();
   }
 
-  async awaitForOffers() {
-    this.ofertas = await this.ofertasService.getOfertas();
-    console.log(this.ofertas);
+  awaitForOffers() {
+    this.ofertasService.getOfertasPorCategoria('restaurante').subscribe({
+      next: ofertas => {
+        this.ofertas = ofertas;
+        this.wasDataLoaded = Promise.resolve(true);
+      }
+    });
   }
 }
