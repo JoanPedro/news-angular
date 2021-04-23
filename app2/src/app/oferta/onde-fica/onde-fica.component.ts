@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'xyz-onde-fica',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OndeFicaComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private readonly activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
   }

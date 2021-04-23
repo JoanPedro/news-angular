@@ -68,14 +68,14 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 
     const productToSubmit: Product = {
       id: this._product.id,
+      starRating: this._product.starRating,
+      imageUrl: this._product.imageUrl,
       productId: this._product.productId,
       productName: formValue.productData.productName,
+      description: formValue.productData.description,
       productCode: formValue.productCode,
       releaseDate: formValue.releaseData,
-      description: formValue.productData.description,
-      price: formValue.price,
-      starRating: this._product.starRating,
-      imageUrl: this._product.imageUrl
+      price: formValue.price
     }
 
     this.generatedUserByForm = this.signupForm.value;
