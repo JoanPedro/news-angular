@@ -8,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserSettingFormComponent implements OnInit {
 
-  userSetting: UserSetting = {
+  private _originalUserSetting: UserSetting = {
     userName: 'Joan',
     userEmailOffers: true,
     userInterfaceStyle: 'dark',
     userSubscriptionType: 'Annual',
     userNotes: 'Here are some notes...'
   }
+
+  userSetting: UserSetting = { ...this._originalUserSetting }
 
   constructor() { }
 
