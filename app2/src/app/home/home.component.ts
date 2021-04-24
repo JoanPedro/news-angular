@@ -24,7 +24,8 @@ export class HomeComponent implements OnInit {
       next: ofertas => {
         this.ofertas = ofertas;
         this.wasDataLoaded = Promise.resolve(true);
-      }
+      },
+      error: console.log
     });
   }
 }
