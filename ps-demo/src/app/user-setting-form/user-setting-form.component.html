@@ -5,10 +5,13 @@
       <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
         <div class="form-group">
           <label for="name">Name</label>
-          <input id="name" class="form-control" placeholder="Name" type="text" [(ngModel)]="userSetting.userName"
-            name="userName" required #nameField="ngModel"
+          <input id="name" class="form-control" placeholder="Name" type="text" required
+            [(ngModel)]="userSetting.userName"
+            name="userName"
+            #nameField="ngModel"
             (blur)="onBlur(nameField)"
-            [ngClass]="myForm.submitted && nameField.invalid ? 'field-error' : ''"/>
+            [ngClass]="myForm.submitted && nameField.invalid ? 'field-error' : ''"
+          />
           <div *ngIf="(myForm.submitted || nameField.invalid) && nameField.touched"
             class="alert alert-danger">
             Please, enter a name!
