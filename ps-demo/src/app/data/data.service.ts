@@ -31,4 +31,8 @@ export class DataService {
     }
     return throwError(errorMessage);
   }
+
+  getSubscriptionType(): Observable<Array<string>> {
+    return of(new Array('Monthly', 'Annual', 'Lifetime'))
+  }
 }

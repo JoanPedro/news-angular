@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { DataService } from './../data/data.service';
 import { UserSetting } from './../data/user-setting.model';
 import { Component, OnInit } from '@angular/core';
@@ -22,11 +23,13 @@ export class UserSettingFormComponent implements OnInit {
   postError = false;
   postErrorMessage = '';
 
+  subscriptionTypes$: Observable<Array<string>>;
   constructor(
     private readonly dataService: DataService
   ) { }
 
   ngOnInit(): void {
+    this.subscriptionTypes$ = this.dataService.getSubscriptionType();
   }
 
   onSubmit(form: NgForm) {
