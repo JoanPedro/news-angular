@@ -19,6 +19,8 @@ export class UserSettingFormComponent implements OnInit {
   }
 
   userSetting: UserSetting = { ...this._originalUserSetting }
+  postError = false;
+  postErrorMessage = '';
 
   constructor(
     private readonly dataService: DataService
@@ -32,7 +34,11 @@ export class UserSettingFormComponent implements OnInit {
     console.log(form);
     this.dataService.postUserSettingsForm(form.value as UserSetting).subscribe({
       next: result => console.log('Success: ', result),
-      error: error => console.error('Error: ', error)
+      error: (error: string) => {
+        console.error('Error: ', error)
+        this.postError = true;
+        this.postErrorMessage = error;
+      }
     });
   }
 

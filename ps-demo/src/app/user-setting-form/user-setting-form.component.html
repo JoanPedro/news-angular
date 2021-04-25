@@ -70,6 +70,9 @@
           <input type="password" id="thePassword" class="form-control" disabled ngModel name="userPassword">
         </div>
 
+        <div [hidden]="!postError" class="alert alert-danger">
+          {{ postErrorMessage }}
+        </div>
         <button class="btn btn-primary">Send</button>
       </form>
 
