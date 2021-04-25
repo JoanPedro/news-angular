@@ -1,5 +1,6 @@
 import { UserSetting } from './../data/user-setting.model';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-user-setting-form',
@@ -23,4 +24,10 @@ export class UserSettingFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(form: NgForm) {
+
+  }
+  test(a: any) {
+    console.log(a);
+  }
 }
