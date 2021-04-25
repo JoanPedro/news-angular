@@ -6,10 +6,14 @@
         <div class="form-group">
           <label for="name">Name</label>
           <input id="name" class="form-control" placeholder="Name" type="text" [(ngModel)]="userSetting.userName"
-            name="userName" required #classTest/>
+            name="userName" required #nameField="ngModel"/>
+          <div *ngIf="nameField.invalid && nameField.touched"
+            class="alert alert-danger">
+            Please, enter a name!
+          </div>
         </div>
 
-        <h3>{{ classTest.className }}</h3>
+        <h3>{{ nameField.className }}</h3>
 
         <div class="form-check form-group">
           <input class="form-check-input" type="checkbox" id="emailOffers" [(ngModel)]="userSetting.userEmailOffers"
