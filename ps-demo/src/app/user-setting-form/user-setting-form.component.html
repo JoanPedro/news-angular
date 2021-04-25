@@ -2,7 +2,7 @@
   <section class="row">
     <div class="col-12">
       <h2>User Settings</h2>
-      <form #myForm="ngForm">
+      <form #myForm="ngForm" ngNativeValidate>
         <div class="form-group">
           <label for="name">Name</label>
           <input id="name" class="form-control" placeholder="Name" type="text" [(ngModel)]="userSetting.userName"
